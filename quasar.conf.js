@@ -30,6 +30,7 @@ module.exports = configure(function (ctx) {
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'axios',
+      'pinia'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -53,7 +54,11 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
+
+      API_URL_BAKERY: ctx.dev
+        ? 'https://dev-bakery.api.com'
+        : 'https://prod-bakery.api.com',
 
       // transpile: false,
       // publicPath: '/',

@@ -12,8 +12,12 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
+    "axios-case-converter": "^0.9.0",
     "core-js": "^3.6.5",
-    "quasar": "^2.0.0"
+    "pinia": "^2.0.3",
+    "quasar": "^2.0.0",
+    "vee-validate": "^4.5.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
