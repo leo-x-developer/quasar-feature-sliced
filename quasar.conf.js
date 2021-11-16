@@ -1,3 +1,4 @@
+const path = require('path')
 /*
  * This file runs in a Node context (it's NOT transpiled by Babel), so use only
  * the ES6 features that are supported by your Node version. https://node.green/
@@ -56,9 +57,12 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
-      API_URL_BAKERY: ctx.dev
-        ? 'https://dev-bakery.api.com'
-        : 'https://prod-bakery.api.com',
+      env: {
+        API_URL_BAKERY: ctx.dev
+          ? 'https://dev-bakery.api.com'
+          : 'https://prod-bakery.api.com',
+      },
+
 
       // transpile: false,
       // publicPath: '/',
@@ -79,8 +83,9 @@ module.exports = configure(function (ctx) {
 
       // https://quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
-      chainWebpack (/* chain */) {
-        //
+      chainWebpack (chain) {
+        chain.resolve.alias
+          .set('@src', path.resolve(__dirname, './src'))
       },
     },
 

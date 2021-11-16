@@ -1,6 +1,6 @@
-import { User } from '@app/shared/api';
-import { viewerModel } from '@app/entities/viewer';
-import { authByJwt } from '@app/features/auth';
+import { User } from '@src/shared/api';
+import { viewerModel } from '@src/entities/viewer';
+import { authByJwt } from '@src/features/auth';
 
 export const useAuth = () => {
   const setUser = (payload: User, remember: boolean) => {

@@ -1,4 +1,4 @@
-import { Email } from '@app/shared/types';
+import { Email } from '@src/shared/types';
 
 export interface User {
   id: number
