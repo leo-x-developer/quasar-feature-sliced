@@ -17,7 +17,6 @@ class Http {
   }
 
   initHttp() {
-    console.log(process.env.API_URL_BAKERY)
     const http = applyCaseMiddleware(axios.create({
       baseURL: process.env.API_URL_BAKERY,
       headers,
