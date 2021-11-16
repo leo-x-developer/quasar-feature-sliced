@@ -9,7 +9,7 @@ export interface User {
 export interface UserDto {
   email: Email,
   password: string,
-  confirmPassword: string,
+  confirmPassword?: string,
 }
 
 export interface ViewerState {
