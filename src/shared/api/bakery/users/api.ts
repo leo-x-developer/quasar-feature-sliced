@@ -1,4 +1,4 @@
-import { useApi } from '@app/shared/api/bakery';
+import { useApi } from '@src/shared/api/bakery';
 
 const BASE_URL = '/users';
 

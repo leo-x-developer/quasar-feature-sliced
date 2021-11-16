@@ -1,6 +1,6 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 import applyCaseMiddleware from 'axios-case-converter';
-import {handleError, injectToken} from '@app/shared/api';
+import {handleError, injectToken} from '@src/shared/api';
 
 const headers: Readonly<Record<string, string | boolean>> = {
   Accept: 'application/json',
@@ -17,6 +17,7 @@ class Http {
   }
 
   initHttp() {
+    console.log(process.env.API_URL_BAKERY)
     const http = applyCaseMiddleware(axios.create({
       baseURL: process.env.API_URL_BAKERY,
       headers,

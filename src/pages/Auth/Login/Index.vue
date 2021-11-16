@@ -41,11 +41,11 @@
 </template>
 
 <script lang="ts">
-import { Field, Form } from 'vee-validate';
+import {Field, Form} from 'vee-validate';
 import * as yup from 'yup';
-import { defineComponent } from 'vue';
-import { UserDto } from '@app/shared/api';
-// import { bakeryApi } from '@app/shared/api' wtf
+import {defineComponent} from 'vue';
+import {UserDto} from '@src/shared/api';
+import {bakeryApi} from '@src/shared/api'
 
 export default defineComponent({
   components: {
@@ -54,13 +54,13 @@ export default defineComponent({
   },
 
   setup() {
-
     const schema = yup.object({
       email: yup.string().required().email().label('Email address'),
       password: yup.string().required().min(6).label('Password'),
     });
 
     const submit = async (payload: UserDto, actions: { resetForm: () => void; }) => {
+      console.log(payload)
       const {
         data,
         loading,
@@ -76,7 +76,6 @@ export default defineComponent({
         errorMessage,
         errorDetails,
         errorFields,)
-
 
       actions.resetForm();
     };

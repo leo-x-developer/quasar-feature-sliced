@@ -1,5 +1,5 @@
-import { UserDto } from '@app/shared/api';
-import { useApi } from '@app/shared/api/bakery';
+import { UserDto } from '@src/shared/api';
+import { useApi } from '@src/shared/api/bakery';
 
 export enum BASE_URL {
   login = 'login',

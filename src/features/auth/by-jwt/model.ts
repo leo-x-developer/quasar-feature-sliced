@@ -1,4 +1,4 @@
-import { User } from '@app/shared/api';
+import { User } from '@src/shared/api';
 import { LocalStorage } from 'quasar';
 
 const STORAGE_KEY = 'viewer'
