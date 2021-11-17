@@ -1,15 +1,43 @@
 import { useApi } from '@src/shared/api/bakery';
+import { Token } from '@src/shared/types';
 
-const BASE_URL = '/users';
+enum BASE_URL {
+  users = '/users',
+  user = '/user'
+}
 
-export type GetAllUsersParams = {
+type GetAllUsersParams = {
   userIds: number[];
 };
 
-export type GetUserByIdParams = {
+type GetUserByIdParams = {
   userId: number;
 };
 
+
+export const user = async (token:Token) => {
+  const {
+    data,
+    loading,
+    error,
+    errorMessage,
+    errorDetails,
+    errorFields,
+    get
+  } = useApi(BASE_URL.user)
+
+  await get({token})
+
+  return {
+    data,
+    loading,
+    error,
+    errorMessage,
+    errorDetails,
+    errorFields,
+  }
+
+}
 export const getAllUsers = async (params?: GetAllUsersParams) => {
   const {
     data,
@@ -19,7 +47,7 @@ export const getAllUsers = async (params?: GetAllUsersParams) => {
     errorDetails,
     errorFields,
     get
-  } = useApi(BASE_URL)
+  } = useApi(BASE_URL.users)
 
   await get(params)
 
@@ -32,7 +60,6 @@ export const getAllUsers = async (params?: GetAllUsersParams) => {
     errorFields,
   }
 }
-
 export const getUserById = async ({ userId, ...params }: GetUserByIdParams) => {
   const {
     data,
@@ -42,7 +69,7 @@ export const getUserById = async ({ userId, ...params }: GetUserByIdParams) => {
     errorDetails,
     errorFields,
     get
-  } = useApi(`${BASE_URL}/${userId}`)
+  } = useApi(`${BASE_URL.users}/${userId}`)
 
   await get(params)
 

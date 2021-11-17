@@ -9,3 +9,7 @@ export const setUser = (payload:User) => {
 export const logout = () => {
   viewerStore.user = undefined
 }
+
+export const setAuthenticating = (value:boolean) => {
+  viewerStore.authenticating = value
+}
