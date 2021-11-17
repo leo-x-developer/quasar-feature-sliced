@@ -1,0 +1,1 @@
+export { checkAuthBeforeGoingToThePage } from './model'

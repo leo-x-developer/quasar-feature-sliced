@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path')
 /*
  * This file runs in a Node context (it's NOT transpiled by Babel), so use only
@@ -31,6 +32,8 @@ module.exports = configure(function (ctx) {
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'axios',
+      'app-layer',
+      'processes-layer'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -54,12 +57,14 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'history', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history',
 
       env: {
         API_URL_BAKERY: ctx.dev
           ? 'https://dev-bakery.api.com'
           : 'https://prod-bakery.api.com',
+
+        BAKERY_AUTH_KEY: 'BAKERY_TOKEN'
       },
 
 

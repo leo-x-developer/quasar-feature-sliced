@@ -1,28 +1,46 @@
 import { RouteRecordRaw } from 'vue-router';
+import { AuthLayout, ViewerLayout } from '@src/shared/layouts';
+
+import { ViewerHome } from '@src/pages/Viewer'
+import { Login, Registration } from '@src/pages/Auth';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('src/shared/layouts/Auth.vue'),
+    component: ViewerLayout,
     children: [
       {
         path: '',
+        name: 'ViewerHome',
+        component: ViewerHome,
+        meta: { requiresAuth: true }
+      },
+    ],
+  },
+  {
+    path: '/',
+    component: AuthLayout,
+    children: [
+      {
+        path: 'login',
         name: 'Login',
-        component: () => import('@src/pages/Auth/Login.vue')
+        component: Login
       },
       {
         path: 'registration',
         name: 'Registration',
-        component: () => import('@src/pages/Auth/Registration.vue')
+        component: Registration
       }
     ],
   },
+
+
 
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue'),
+    component: () => import('@src/pages/Error404.vue'),
   },
 ];
 
