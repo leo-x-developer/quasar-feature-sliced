@@ -51,7 +51,7 @@
 <script lang="ts">
 import { Field, Form } from 'vee-validate';
 import { defineComponent } from 'vue';
-import { useRegistrationForm } from '@src/features/auth';
+import { useRegistrationForm } from '@features/auth';
 
 export default defineComponent({
   components: {

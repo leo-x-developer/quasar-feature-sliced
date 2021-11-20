@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue'
-import { http } from '@src/shared/api/bakery';
+import { http } from '@shared/api/bakery';
 
 export const useApi = (endpoint: string) => {
   const loading = ref(true)

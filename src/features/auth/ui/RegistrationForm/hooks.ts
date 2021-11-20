@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { bakeryApi, UserDto } from '@src/shared/api';
+import { bakeryApi, UserDto } from '@shared/api';
 
 export const useRegistrationForm = () => {
   const schema = yup.object({

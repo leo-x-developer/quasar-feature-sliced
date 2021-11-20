@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { RegistrationForm } from '@src/features/auth';
+import { RegistrationForm } from '@features/auth';
 
 export default defineComponent({
   components: {

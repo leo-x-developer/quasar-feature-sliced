@@ -1,7 +1,7 @@
-import { User } from '@src/shared/api';
+import { User } from '@shared/api';
 import { LocalStorage } from 'quasar';
-import { AUTH_KEY } from '@src/shared/api/bakery';
-import { Token } from '@src/shared/types';
+import { AUTH_KEY } from '@shared/api/bakery';
+import { Token } from '@shared/types';
 
 export const token:Token = LocalStorage.getItem(AUTH_KEY)
 

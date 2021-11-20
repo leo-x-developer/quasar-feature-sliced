@@ -1,6 +1,6 @@
 import * as yup from 'yup';
-import { bakeryApi, UserDto } from '@src/shared/api';
-import { useAuth } from '@src/features/auth';
+import { bakeryApi, UserDto } from '@shared/api';
+import { useAuth } from '@features/auth';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'
 

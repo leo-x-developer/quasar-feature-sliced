@@ -1,5 +1,5 @@
-import { User } from '@src/shared/api';
-import { viewerStore } from '@src/entities/viewer';
+import { User } from '@shared/api';
+import { viewerStore } from '@entities/viewer';
 
 export const setUser = (payload:User) => {
   viewerStore.user = payload
