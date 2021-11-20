@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 import { bakeryApi, UserDto } from '@shared/api';
-import { useAuth } from '@features/auth';
+import { authModel } from '@features/auth';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'
 
@@ -14,14 +14,12 @@ export const useLoginForm = () => {
 
   const rememberMe = ref(true)
 
-  const submit = async (payload: UserDto, actions: { resetForm: () => void; }) => {
-    const { setUser } = useAuth()
+  const submit = async (payload: UserDto) => {
+    const { setViewer } = authModel.useAuth()
     const { data } = await bakeryApi.auth.login(payload)
 
-    setUser(data.value, rememberMe.value)
+    setViewer(data.value, rememberMe.value)
     await router.push({name: 'ViewerHome'})
-
-    actions.resetForm();
   };
 
   return {
