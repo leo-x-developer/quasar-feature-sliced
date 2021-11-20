@@ -1,2 +1,1 @@
-export * as viewerModel from './model';
-export { viewerStore } from './store';
+export * as viewerModel from './model'

@@ -1,10 +1,4 @@
-import { reactive } from 'vue';
-import { ViewerState } from '@shared/api';
+import { Viewer } from '@shared/api';
+import { ref } from 'vue';
 
-export const viewerStore = reactive<ViewerState>({
-  authenticating: false,
-  user: undefined,
-  error: undefined,
-})
-
-
+export const viewerState = ref<Viewer>(null)

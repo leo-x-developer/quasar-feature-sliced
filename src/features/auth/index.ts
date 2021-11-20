@@ -1,3 +1,4 @@
 export * as authByJwt from './by-jwt'
 export * from './ui'
-export { useAuth } from './model'
+export * as authModel from './model'
+export * from './type'

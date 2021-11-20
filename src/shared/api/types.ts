@@ -1,9 +1,9 @@
 import { Email } from '@shared/types';
 
 export interface User {
-  id: number
-  name: string,
-  email: Email,
+  id: number | null,
+  name: string | null,
+  email: Email | null,
 }
 
 export interface UserDto {
@@ -12,9 +12,6 @@ export interface UserDto {
   confirmPassword?: string,
 }
 
-export interface ViewerState {
-  authenticating: boolean;
-  user?: User | null;
-  error?: Error | null;
-}
+export type Viewer = User | null
+
 
