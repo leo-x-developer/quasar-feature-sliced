@@ -89,7 +89,12 @@ module.exports = configure(function (ctx) {
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
       chainWebpack (chain) {
         chain.resolve.alias
-          .set('@src', path.resolve(__dirname, './src'))
+          .set('@app', path.resolve(__dirname, './src/app'))
+          .set('@entities', path.resolve(__dirname, './src/entities'))
+          .set('@features', path.resolve(__dirname, './src/features'))
+          .set('@pages', path.resolve(__dirname, './src/pages'))
+          .set('@processes', path.resolve(__dirname, './src/processes'))
+          .set('@shared', path.resolve(__dirname, './src/shared'))
       },
     },
 

@@ -1,4 +1,4 @@
-import {viewerStore} from '@src/entities/viewer';
+import {viewerStore} from '@entities/viewer';
 import {Router} from 'vue-router';
 
 

@@ -1,8 +1,8 @@
 import { RouteRecordRaw } from 'vue-router';
-import { AuthLayout, ViewerLayout } from '@src/shared/layouts';
+import { AuthLayout, ViewerLayout } from '@shared/layouts';
 
-import { ViewerHome } from '@src/pages/Viewer'
-import { Login, Registration } from '@src/pages/Auth';
+import { ViewerHome } from '@pages/Viewer'
+import { Login, Registration } from '@pages/Auth';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -40,7 +40,7 @@ const routes: RouteRecordRaw[] = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('@src/pages/Error404.vue'),
+    component: () => import('@pages/Error404.vue'),
   },
 ];
 

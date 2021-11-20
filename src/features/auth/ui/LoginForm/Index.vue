@@ -40,7 +40,7 @@
 <script lang="ts">
 import { Field, Form } from 'vee-validate';
 import { defineComponent } from 'vue';
-import { useLoginForm } from '@src/features/auth';
+import { useLoginForm } from '@features/auth';
 
 export default defineComponent({
   components: {

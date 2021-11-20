@@ -1,5 +1,5 @@
-import { useApi } from '@src/shared/api/bakery';
-import { Token } from '@src/shared/types';
+import { useApi } from '@shared/api/bakery';
+import { Token } from '@shared/types';
 
 enum BASE_URL {
   users = '/users',

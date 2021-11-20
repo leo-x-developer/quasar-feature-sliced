@@ -1,8 +1,8 @@
-import { User } from '@src/shared/api';
-import { viewerModel } from '@src/entities/viewer';
-import { authByJwt } from '@src/features/auth';
+import { User } from '@shared/api';
+import { viewerModel } from '@entities/viewer';
+import { authByJwt } from '@features/auth';
 import { watch } from 'vue';
-import { bakeryApi } from '@src/shared/api';
+import { bakeryApi } from '@shared/api';
 
 export const useAuth = () => {
   const setUser = (payload: User, remember: boolean) => {

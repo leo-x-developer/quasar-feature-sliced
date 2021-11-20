@@ -1,6 +1,6 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 import applyCaseMiddleware from 'axios-case-converter';
-import {handleError, injectToken} from '@src/shared/api';
+import {handleError, injectToken} from '@shared/api';
 
 const headers: Readonly<Record<string, string | boolean>> = {
   Accept: 'application/json',
