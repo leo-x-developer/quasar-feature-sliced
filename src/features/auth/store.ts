@@ -1,11 +1,25 @@
-import { reactive } from 'vue';
-import { AuthState } from '@features/auth';
-import { viewerModel } from '@entities/viewer';
+import { defineStore } from 'pinia';
+import { Token } from '@shared/types';
+import { authByJwt } from '@features/auth';
 
-export const authState = reactive<AuthState>({
-  viewer: viewerModel.state.value,
-  authenticating: false,
-  error: null,
+export interface AuthStore {
+  token: Token,
+}
+
+export const useAuthStore = defineStore('auth', {
+  state: () => ({
+    token: authByJwt.getJwtToken()
+  } as AuthStore),
+
+  getters: {
+    loggedIn: (state) => !!state.token
+  },
+
+  actions: {
+    setToken(token:Token) {
+      this.$patch((state) => {
+        state.token = token;
+      });
+    },
+  }
 })
-
-

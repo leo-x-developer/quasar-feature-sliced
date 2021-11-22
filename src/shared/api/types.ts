@@ -6,10 +6,16 @@ export interface User {
   email: Email | null,
 }
 
-export interface UserDto {
-  email: Email,
+export interface UserDtoLogin {
+  identifier: string,
   password: string,
   confirmPassword?: string,
+}
+
+export interface UserDtoRegistration {
+  username: string,
+  email: Email,
+  password: string
 }
 
 export type Viewer = User | null

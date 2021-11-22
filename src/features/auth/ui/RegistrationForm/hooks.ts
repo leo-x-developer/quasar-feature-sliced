@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { bakeryApi, UserDto } from '@shared/api';
+import { bakeryApi, UserDtoRegistration } from '@shared/api';
 
 export const useRegistrationForm = () => {
   const schema = yup.object({
@@ -8,7 +8,7 @@ export const useRegistrationForm = () => {
     confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match')
   });
 
-  const submit = async (payload: UserDto, actions: { resetForm: () => void; }) => {
+  const submit = async (payload: UserDtoRegistration) => {
     const {
       data,
       loading,
@@ -24,8 +24,6 @@ export const useRegistrationForm = () => {
       errorMessage,
       errorDetails,
       errorFields)
-
-    actions.resetForm();
   };
 
   return {
