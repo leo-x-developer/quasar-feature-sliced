@@ -14,6 +14,7 @@
     "axios": "^0.21.1",
     "axios-case-converter": "^0.9.0",
     "core-js": "^3.6.5",
+    "pinia": "^2.0.4",
     "quasar": "^2.0.0",
     "vee-validate": "^4.5.5",
     "yup": "^0.32.11"

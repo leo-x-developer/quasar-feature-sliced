@@ -5,7 +5,7 @@
       @submit="submit"
     >
 
-      <Field name="email" v-slot="{ errorMessage, value, field }">
+      <Field name="identifier" v-slot="{ errorMessage, value, field }">
         <q-input
           label="Email"
           placeholder="user@example.com"
@@ -49,11 +49,8 @@ export default defineComponent({
   },
 
   setup() {
-    const { submit, schema } = useLoginForm()
-
     return {
-      submit,
-      schema,
+      ...useLoginForm()
     };
   },
 

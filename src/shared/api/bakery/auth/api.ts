@@ -1,12 +1,12 @@
-import { UserDto } from '@shared/api';
+import { UserDtoLogin, UserDtoRegistration } from '@shared/api';
 import { useApi } from '@shared/api/bakery';
 
 export enum BASE_URL {
-  login = 'login',
-  register = 'register',
+  login = 'auth/local',
+  register = 'auth/local/register',
 }
 
-export const login = async (dto:UserDto) => {
+export const login = async (dto:UserDtoLogin) => {
   const {
     data,
     loading,
@@ -29,7 +29,7 @@ export const login = async (dto:UserDto) => {
   }
 }
 
-export const register = async (dto:UserDto) => {
+export const register = async (dto:UserDtoRegistration) => {
   const {
     data,
     loading,

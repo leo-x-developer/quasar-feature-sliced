@@ -1,1 +1,0 @@
-export { withAuth } from './withAuth'

@@ -1,2 +1,1 @@
-export { viewerState as state } from './store'
-export * from './selectors'
+export { useViewerStore as store } from './store'

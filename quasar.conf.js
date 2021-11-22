@@ -31,8 +31,8 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
+      'pinia',
       'axios',
-      'app-layer',
       'processes-layer'
     ],
 
@@ -61,7 +61,7 @@ module.exports = configure(function (ctx) {
 
       env: {
         API_URL_BAKERY: ctx.dev
-          ? 'https://dev-bakery.api.com'
+          ? 'http://localhost:1337'
           : 'https://prod-bakery.api.com',
 
         BAKERY_AUTH_KEY: 'BAKERY_TOKEN'

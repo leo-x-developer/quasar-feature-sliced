@@ -1,12 +1,10 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
 import applyCaseMiddleware from 'axios-case-converter';
-import {handleError, injectToken} from '@shared/api';
+import { handleError, injectToken } from '@shared/api/bakery';
 
 const headers: Readonly<Record<string, string | boolean>> = {
   Accept: 'application/json',
   'Content-Type': 'application/json; charset=utf-8',
-  'X-Requested-With': 'XMLHttpRequest',
-  'Access-Control-Allow-Credentials': true,
 };
 
 class Http {
@@ -27,7 +25,6 @@ class Http {
     http.interceptors.response.use(
       (response) => response,
       (error) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const { response } = error;
         return handleError(response);
       }

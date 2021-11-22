@@ -1,17 +1,20 @@
 import { Viewer } from '@shared/api';
-import { authByJwt, authModel } from '@features/auth';
+import { authByJwt } from '@features/auth';
+import { viewerModel } from '@entities/viewer'
 
 export const useAuth = () => {
+  const viewerStore = viewerModel.store()
+
   const setViewer = (payload: Viewer, remember: boolean) => {
     if (payload) {
       authByJwt.setToken(payload, remember)
-      authModel.setViewer(payload)
+      viewerStore.setViewer(payload)
     }
   }
 
   const logout = () => {
+    viewerStore.logout()
     authByJwt.removeToken()
-    authModel.logout()
   }
 
   return {

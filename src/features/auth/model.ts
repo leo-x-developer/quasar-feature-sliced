@@ -1,3 +1,3 @@
-export * from './selectors'
-export { authState as state } from './store'
 export * from './hooks'
+export { useAuthStore as store } from './store'
+
