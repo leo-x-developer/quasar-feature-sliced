@@ -1,11 +1,9 @@
 import * as yup from 'yup';
 import { ref } from 'vue';
-import { useRouter } from 'vue-router'
 import { UserDtoLogin } from '@shared/api';
 import { authModel } from '@features/auth';
 
 export const useLoginForm = () => {
-  const router = useRouter();
   const { login } = authModel.useAuth()
 
   const schema = yup.object({
@@ -17,7 +15,6 @@ export const useLoginForm = () => {
 
   const submit = async (dto: UserDtoLogin) => {
     await login(dto, rememberMe.value)
-    router.go(0)
   };
 
   return {

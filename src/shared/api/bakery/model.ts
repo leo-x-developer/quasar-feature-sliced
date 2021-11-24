@@ -1,2 +1,2 @@
 export * from './constants'
-export { useApiStore } from './store'
+export { useApi } from './store'
