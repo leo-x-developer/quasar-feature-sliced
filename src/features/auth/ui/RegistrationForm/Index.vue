@@ -6,6 +6,16 @@
       @submit="submit"
     >
 
+      <Field name="username" v-slot="{ errorMessage, value, field }">
+        <q-input
+          label="Username"
+          :model-value="value"
+          v-bind="field"
+          :error-message="errorMessage"
+          :error="!!errorMessage"
+        />
+      </Field>
+
       <Field name="email" v-slot="{ errorMessage, value, field }">
         <q-input
           label="Email"
@@ -20,7 +30,6 @@
       <Field name="password" v-slot="{ errorMessage, value, field }">
         <q-input
           label="Password"
-          placeholder="p@$$vv0Rd"
           :model-value="value"
           v-bind="field"
           :error-message="errorMessage"

@@ -1,11 +1,12 @@
 import * as yup from 'yup';
-import { bakeryApi, UserDtoLogin } from '@shared/api';
-import { authModel } from '@features/auth';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'
+import { UserDtoLogin } from '@shared/api';
+import { authModel } from '@features/auth';
 
 export const useLoginForm = () => {
   const router = useRouter();
+  const { login } = authModel.useAuth()
 
   const schema = yup.object({
     identifier: yup.string().required().email().label('Email address'),
@@ -14,11 +15,8 @@ export const useLoginForm = () => {
 
   const rememberMe = ref(true)
 
-  const submit = async (payload: UserDtoLogin) => {
-    const { setViewer } = authModel.useAuth()
-    const { data } = await bakeryApi.auth.login(payload)
-
-    setViewer(data.value, rememberMe.value)
+  const submit = async (dto: UserDtoLogin) => {
+    await login(dto, rememberMe.value)
     router.go(0)
   };
 

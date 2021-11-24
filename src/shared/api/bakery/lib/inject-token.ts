@@ -1,10 +1,10 @@
 import { AxiosRequestConfig } from 'axios';
 import { authByJwt } from '@features/auth';
-import { bakeryApi } from '@shared/api';
+import { BASE_AUTH_URL } from '@shared/api';
 
 const injectToken = (config: AxiosRequestConfig): AxiosRequestConfig => {
-  const loginPath = config.url === bakeryApi.auth.BASE_URL.login
-  const registerPath = config.url === bakeryApi.auth.BASE_URL.register
+  const loginPath = config.url === BASE_AUTH_URL.login
+  const registerPath = config.url === BASE_AUTH_URL.register
 
   const isNotAuthPath = !(loginPath && registerPath)
 
