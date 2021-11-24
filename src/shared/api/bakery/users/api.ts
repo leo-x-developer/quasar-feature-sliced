@@ -18,9 +18,6 @@ export const getAllUsers = async (params?: GetAllUsersParams) => {
     data,
     loading,
     error,
-    errorMessage,
-    errorDetails,
-    errorFields,
     get
   } = useApi(BASE_URL.users)
 
@@ -30,9 +27,6 @@ export const getAllUsers = async (params?: GetAllUsersParams) => {
     data,
     loading,
     error,
-    errorMessage,
-    errorDetails,
-    errorFields,
   }
 }
 export const getUserById = async ({ userId, ...params }: GetUserByIdParams) => {
@@ -40,9 +34,6 @@ export const getUserById = async ({ userId, ...params }: GetUserByIdParams) => {
     data,
     loading,
     error,
-    errorMessage,
-    errorDetails,
-    errorFields,
     get
   } = useApi(`${BASE_URL.users}/${userId}`)
 
@@ -52,8 +43,5 @@ export const getUserById = async ({ userId, ...params }: GetUserByIdParams) => {
     data,
     loading,
     error,
-    errorMessage,
-    errorDetails,
-    errorFields,
   }
 }

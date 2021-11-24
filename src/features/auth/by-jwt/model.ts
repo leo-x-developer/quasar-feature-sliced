@@ -22,7 +22,7 @@ export const getViewer = () => {
 }
 
 export const setToken = (payload: Viewer, remember: boolean) => {
-  if (remember) {
+  if (payload && remember) {
     LocalStorage.set(AUTH_KEY, JSON.stringify(payload));
   }
 }

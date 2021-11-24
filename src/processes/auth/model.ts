@@ -1,5 +1,5 @@
 import { Router } from 'vue-router';
-import { authModel } from '@features/auth';
+import { authModel, authSuccessNotification } from '@features/auth';
 
 export const checkAuthBeforeGoingToThePage = (router:Router) => {
   const authStore = authModel.store()
@@ -11,6 +11,7 @@ export const checkAuthBeforeGoingToThePage = (router:Router) => {
 
     else if ((to.name == 'Login' || to.name == 'Registration') && authStore.loggedIn) {
       next({ name: 'ViewerHome' })
+      authSuccessNotification()
     }
 
     else next()
