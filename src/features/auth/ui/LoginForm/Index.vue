@@ -49,8 +49,11 @@ export default defineComponent({
   },
 
   setup() {
+  const {submit, schema} = useLoginForm()
+
     return {
-      ...useLoginForm()
+      submit,
+      schema
     };
   },
 

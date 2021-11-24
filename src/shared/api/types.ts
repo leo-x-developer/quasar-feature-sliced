@@ -1,5 +1,10 @@
 import { Email } from '@shared/types';
 
+export enum BASE_AUTH_URL {
+  login = 'auth/local',
+  register = 'auth/local/register',
+}
+
 export interface User {
   id: number | null,
   name: string | null,

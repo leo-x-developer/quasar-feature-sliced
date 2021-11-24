@@ -1,14 +1,23 @@
-import { Viewer } from '@shared/api';
-import { authByJwt } from '@features/auth';
+import { UserDtoLogin, UserDtoRegistration } from '@shared/api';
+import { authByJwt, authModel } from '@features/auth';
 import { viewerModel } from '@entities/viewer'
 
 export const useAuth = () => {
   const viewerStore = viewerModel.store()
 
-  const setViewer = (payload: Viewer, remember: boolean) => {
-    if (payload) {
-      authByJwt.setToken(payload, remember)
-      viewerStore.setViewer(payload)
+  const register = async (dto:UserDtoRegistration, remember:boolean) => {
+    const { data } = await authModel.api.register(dto)
+    if (data) {
+      authByJwt.setToken(data.value, remember)
+      viewerStore.setViewer(data.value)
+    }
+  }
+
+  const login = async (dto:UserDtoLogin, remember:boolean) => {
+    const { data } = await authModel.api.login(dto)
+    if(data) {
+      authByJwt.setToken(data.value, remember)
+      viewerStore.setViewer(data.value)
     }
   }
 
@@ -18,7 +27,8 @@ export const useAuth = () => {
   }
 
   return {
-    setViewer,
+    register,
+    login,
     logout,
   }
 }

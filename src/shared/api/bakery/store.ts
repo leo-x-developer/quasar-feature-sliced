@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 import { http } from '@shared/api/bakery';
 
-export const useApi = (endpoint: string) => {
+export const useApiStore = (endpoint: string) => {
   const loading = ref(true)
   const data = ref()
   const error = ref()
@@ -70,3 +70,4 @@ export const useApi = (endpoint: string) => {
     post
   }
 }
+
