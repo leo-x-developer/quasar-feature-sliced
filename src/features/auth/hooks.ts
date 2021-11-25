@@ -1,48 +1,46 @@
 import { UserDtoLogin, UserDtoRegistration } from '@shared/api';
 import { viewerModel } from '@entities/viewer';
 import { useRouter } from 'vue-router';
-import {
-  authByJwt,
-  authModel,
-  showSpinerOverlay,
-  hideSpinerOverlay,
-  authErrorNotification
-} from '@features/auth';
-
+import { authModel } from '@features/auth';
+import { jwt } from '@shared/api/bakery';
 
 export const useAuth = () => {
   const router = useRouter();
   const viewerStore = viewerModel.store()
 
   const register = async (dto:UserDtoRegistration, remember:boolean) => {
+    authModel.preloader.show()
     try {
-      showSpinerOverlay(true)
       const { data } = await authModel.api.register(dto)
-      authByJwt.setToken(data.value, remember)
+      jwt.setToken(data.value, remember)
       viewerStore.setViewer(data.value)
-      await router.push({name: 'ViewerHome'})
+      router.go(0)
     } catch (e) {
-      hideSpinerOverlay()
-      authErrorNotification()
+      authModel.notify.error()
+    }
+    finally {
+      authModel.preloader.hide()
     }
   }
 
   const login = async (dto:UserDtoLogin, remember:boolean) => {
+    authModel.preloader.show()
     try {
-      showSpinerOverlay(true)
       const { data } = await authModel.api.login(dto)
-      authByJwt.setToken(data.value, remember)
+      jwt.setToken(data.value, remember)
       viewerStore.setViewer(data.value)
       router.go(0)
     } catch (e) {
-      hideSpinerOverlay()
-      authErrorNotification()
+      authModel.notify.error()
+    }
+    finally {
+      authModel.preloader.hide()
     }
   }
 
   const logout = () => {
     viewerStore.logout()
-    authByJwt.removeToken()
+    jwt.removeToken()
   }
 
   return {

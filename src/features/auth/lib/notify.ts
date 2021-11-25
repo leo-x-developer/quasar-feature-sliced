@@ -1,15 +1,16 @@
 import { Notify } from 'quasar'
 
-export const authSuccessNotification = () => {
+export const success = () => {
   return Notify.create({
     message: 'Authentication was successful!',
     color: 'teal',
+    position: 'top-right'
   })
 }
 
-export const authErrorNotification = () => {
+export const error = () => {
   return Notify.create({
-    message: 'Authentification proble... Сheck your details!',
+    message: 'Authentification problem... Сheck your details!',
     color: 'negative',
   })
 }

@@ -1,2 +1,2 @@
-export { showSpinerOverlay, hideSpinerOverlay } from './spiner-overlay'
-export { authSuccessNotification, authErrorNotification } from './notify'
+export * as preloader from './spiner-overlay'
+export * as notify from './notify'
