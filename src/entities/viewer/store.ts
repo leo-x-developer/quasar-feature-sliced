@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia';
 import { Viewer } from '@shared/api';
+import { jwt } from '@shared/api/bakery'
 
 export const useViewerStore = defineStore('viewer', {
   state: () => ({
-    viewer: null
+    viewer: jwt.viewer()
   } as {
     viewer: Viewer
   }),

@@ -1,1 +1,1 @@
-export { checkAuthBeforeGoingToThePage } from './model'
+export * from './model'

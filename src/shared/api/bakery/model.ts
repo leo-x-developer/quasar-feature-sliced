@@ -1,2 +1,2 @@
 export * from './constants'
-export { useApi } from './store'
+export { useApi } from './hooks'

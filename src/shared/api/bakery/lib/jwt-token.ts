@@ -5,7 +5,7 @@ import { Viewer } from '@shared/api';
 
 const jwtToken:Token = LocalStorage.getItem(AUTH_KEY)
 
-export const getJwtToken = () => {
+export const token = () => {
   if(jwtToken) {
     return JSON.parse(jwtToken).jwt
   } else {
@@ -13,7 +13,7 @@ export const getJwtToken = () => {
   }
 }
 
-export const getViewer = () => {
+export const viewer = () => {
   if(jwtToken) {
     return JSON.parse(jwtToken).user
   } else {

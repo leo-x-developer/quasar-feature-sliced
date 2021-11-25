@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Token } from '@shared/types';
-import { authByJwt } from '@features/auth';
+import { jwt } from '@shared/api/bakery';
 
 export interface AuthStore {
   token: Token,
@@ -8,7 +8,7 @@ export interface AuthStore {
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    token: authByJwt.getJwtToken()
+    token: jwt.token()
   } as AuthStore),
 
   getters: {

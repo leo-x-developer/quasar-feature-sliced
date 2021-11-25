@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
-import { authByJwt } from '@features/auth';
 import { BASE_AUTH_URL } from '@shared/api';
+import { jwt } from '@shared/api/bakery';
 
 const injectToken = (config: AxiosRequestConfig): AxiosRequestConfig => {
   const loginPath = config.url === BASE_AUTH_URL.login
@@ -14,7 +14,7 @@ const injectToken = (config: AxiosRequestConfig): AxiosRequestConfig => {
   }
 
   try {
-    const token = authByJwt.getJwtToken()
+    const token = jwt.token()
     const tokenType = 'Bearer'
 
     if (token) {
