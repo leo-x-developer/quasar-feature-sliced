@@ -1,14 +1,21 @@
-import {Email, Image} from '@shared/types';
+import {Email, Id, Image} from '@shared/types';
 
 export enum BASE_AUTH_URL {
   login = 'auth/local',
   register = 'auth/local/register',
 }
 
+export type Token = {
+  jwt: string,
+  user: IUser
+}
+
 export interface IUser {
-  id: number | null,
+  id: Id,
   name: string | null,
   email: Email | null,
+  role: Role
+  orders:IOrder[]
 }
 
 export interface IUserDtoLogin {
@@ -24,7 +31,7 @@ export interface IUserDtoRegistration {
 }
 
 export interface IProduct {
-  id?: number,
+  id?: Id,
   name: string,
   description: string,
   price: number,
@@ -32,12 +39,19 @@ export interface IProduct {
 }
 
 export interface IOrder {
+  id?: Id,
   users: Pick<IUser, 'id'>[]
   products: Pick<IProduct, 'id'>[],
   complete: boolean,
   totalSum: number
 }
 
+export type Role = {
+  id: Id,
+  name: 'client' | 'cook',
+  description: string,
+  type: string
+}
+
 export type Viewer = IUser | null
 export type Order = IOrder | null
-
