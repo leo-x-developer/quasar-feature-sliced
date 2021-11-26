@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia';
-import { Token } from '@shared/types';
 import { jwt } from '@shared/api/bakery';
 
 export interface AuthStore {
-  token: Token,
+  token: string,
 }
 
 export const useAuthStore = defineStore('auth', {
@@ -16,7 +15,7 @@ export const useAuthStore = defineStore('auth', {
   },
 
   actions: {
-    setToken(token:Token) {
+    setToken(token:string) {
       this.$patch((state) => {
         state.token = token;
       });

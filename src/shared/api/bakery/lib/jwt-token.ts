@@ -1,13 +1,12 @@
-import { LocalStorage } from 'quasar';
+import { Cookies } from 'quasar';
 import { AUTH_KEY } from '@shared/api/bakery';
-import { Token } from '@shared/types';
-import { Viewer } from '@shared/api';
+import { Viewer, Token } from '@shared/api';
 
-const jwtToken:Token = LocalStorage.getItem(AUTH_KEY)
+const jwtToken:Token = Cookies.get(AUTH_KEY)
 
 export const token = () => {
   if(jwtToken) {
-    return JSON.parse(jwtToken).jwt
+    return jwtToken.jwt
   } else {
     return null
   }
@@ -15,7 +14,7 @@ export const token = () => {
 
 export const viewer = () => {
   if(jwtToken) {
-    return JSON.parse(jwtToken).user
+    return jwtToken.user
   } else {
     return null
   }
@@ -23,10 +22,10 @@ export const viewer = () => {
 
 export const setToken = (payload: Viewer, remember: boolean) => {
   if (payload && remember) {
-    LocalStorage.set(AUTH_KEY, JSON.stringify(payload));
+    Cookies.set(AUTH_KEY, JSON.stringify(payload), {expires: '2h'});
   }
 }
 
 export const removeToken = () => {
-  LocalStorage.remove(AUTH_KEY);
+  Cookies.remove(AUTH_KEY);
 }
