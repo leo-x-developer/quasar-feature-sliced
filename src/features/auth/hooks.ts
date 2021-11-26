@@ -1,4 +1,4 @@
-import { UserDtoLogin, UserDtoRegistration } from '@shared/api';
+import { IUserDtoLogin, IUserDtoRegistration } from '@shared/api';
 import { viewerModel } from '@entities/viewer';
 import { useRouter } from 'vue-router';
 import { authModel } from '@features/auth';
@@ -8,7 +8,7 @@ export const useAuth = () => {
   const router = useRouter();
   const viewerStore = viewerModel.store()
 
-  const register = async (dto:UserDtoRegistration, remember:boolean) => {
+  const register = async (dto:IUserDtoRegistration, remember:boolean) => {
     authModel.preloader.show()
     try {
       const { data } = await authModel.api.register(dto)
@@ -23,7 +23,7 @@ export const useAuth = () => {
     }
   }
 
-  const login = async (dto:UserDtoLogin, remember:boolean) => {
+  const login = async (dto:IUserDtoLogin, remember:boolean) => {
     authModel.preloader.show()
     try {
       const { data } = await authModel.api.login(dto)
