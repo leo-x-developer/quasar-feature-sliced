@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 import { ref } from 'vue';
-import { UserDtoLogin } from '@shared/api';
+import { IUserDtoLogin } from '@shared/api';
 import { authModel } from '@features/auth';
 
 export const useLoginForm = () => {
@@ -13,7 +13,7 @@ export const useLoginForm = () => {
 
   const rememberMe = ref(true)
 
-  const submit = async (dto: UserDtoLogin) => {
+  const submit = async (dto: IUserDtoLogin) => {
     await login(dto, rememberMe.value)
   };
 
