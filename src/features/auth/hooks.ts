@@ -1,22 +1,20 @@
 import { IUserDtoLogin, IUserDtoRegistration } from '@shared/api';
 import { viewerModel } from '@entities/viewer';
-import { useRouter } from 'vue-router';
 import { authModel } from '@features/auth';
 import { jwt } from '@shared/api/bakery';
+import { useRouter } from 'vue-router';
 
 export const useAuth = () => {
-  const router = useRouter();
+  const router = useRouter()
   const viewerStore = viewerModel.store()
 
   const register = async (dto:IUserDtoRegistration, remember:boolean) => {
     authModel.preloader.show()
     try {
       const { data } = await authModel.api.register(dto)
-      jwt.setToken(data.value, remember)
-      viewerStore.setViewer(data.value)
-      router.go(0)
+      authModel.setAuthData(data, remember)
     } catch (e) {
-      authModel.notify.error()
+      authModel.notify.error('Registration erro!')
     }
     finally {
       authModel.preloader.hide()
@@ -27,11 +25,9 @@ export const useAuth = () => {
     authModel.preloader.show()
     try {
       const { data } = await authModel.api.login(dto)
-      jwt.setToken(data.value, remember)
-      viewerStore.setViewer(data.value)
-      router.go(0)
+      authModel.setAuthData(data, remember)
     } catch (e) {
-      authModel.notify.error()
+      authModel.notify.error('Login error!')
     }
     finally {
       authModel.preloader.hide()
@@ -41,6 +37,7 @@ export const useAuth = () => {
   const logout = () => {
     viewerStore.logout()
     jwt.removeToken()
+    router.go(0)
   }
 
   return {

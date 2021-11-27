@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { IUserDtoLogin } from '@shared/api';
 import { authModel } from '@features/auth';
 
-export const useLoginForm = () => {
+export const useLoginForm = (emit:any) => {
   const { login } = authModel.useAuth()
 
   const schema = yup.object({
@@ -15,6 +15,7 @@ export const useLoginForm = () => {
 
   const submit = async (dto: IUserDtoLogin) => {
     await login(dto, rememberMe.value)
+    emit('login')
   };
 
   return {

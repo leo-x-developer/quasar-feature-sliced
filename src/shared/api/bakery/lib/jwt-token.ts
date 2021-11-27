@@ -1,8 +1,8 @@
 import { Cookies } from 'quasar';
 import { AUTH_KEY } from '@shared/api/bakery';
-import { Viewer, Token } from '@shared/api';
+import { JwtToken } from '@shared/api';
 
-const jwtToken:Token = Cookies.get(AUTH_KEY)
+const jwtToken:JwtToken = Cookies.get(AUTH_KEY)
 
 export const token = () => {
   if(jwtToken) {
@@ -20,7 +20,7 @@ export const viewer = () => {
   }
 }
 
-export const setToken = (payload: Viewer, remember: boolean) => {
+export const setToken = (payload: JwtToken, remember: boolean) => {
   if (payload && remember) {
     Cookies.set(AUTH_KEY, JSON.stringify(payload), {expires: '2h'});
   }

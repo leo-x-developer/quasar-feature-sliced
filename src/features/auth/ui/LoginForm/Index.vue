@@ -48,8 +48,8 @@ export default defineComponent({
     Form,
   },
 
-  setup() {
-  const { submit, schema } = useLoginForm()
+  setup(_, { emit }) {
+  const { submit, schema } = useLoginForm(emit)
 
     return {
       submit,
