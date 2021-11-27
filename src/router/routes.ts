@@ -1,30 +1,32 @@
 import { RouteRecordRaw } from 'vue-router';
-import { AuthLayout, ViewerLayout } from '@shared/layouts';
+import { AuthLayout, ClientLayout, CookLayout } from '@widgets/layouts';
 import { ClientHome } from '@pages/Client'
 import { CookHome } from '@pages/Cook'
 import { Login, Registration } from '@pages/Auth';
 import { Roles } from '@shared/api';
-import { checkRolePermission } from '@processes/auth/checkRolePermission';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: ViewerLayout,
-    meta: { requiresAuth: true },
+    component: ClientLayout,
+    meta: { requiresAuth: true, authorize: [Roles.client] },
     children: [
       {
         path: '',
         name: 'ClientHome',
         component: ClientHome,
-        meta: { authorize: [Roles.client] },
-        beforeEnter: checkRolePermission
       },
+    ],
+  },
+  {
+    path: '/',
+    component: CookLayout,
+    meta: { requiresAuth: true, authorize: [Roles.cook] },
+    children: [
       {
         path: '',
         name: 'CookHome',
         component: CookHome,
-        meta: { authorize: [Roles.cook] },
-        beforeEnter: checkRolePermission
       },
     ],
   },
