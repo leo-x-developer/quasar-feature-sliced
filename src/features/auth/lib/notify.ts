@@ -7,7 +7,7 @@ export const success = (greeting = 'Hello') => {
   return Notify.create({
     message: `${greeting}, ${ViewerName}!`,
     color: 'teal',
-    position: 'top-right'
+    position: 'top'
   })
 }
 
