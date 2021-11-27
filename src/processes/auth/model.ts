@@ -1,3 +1,3 @@
 export * from './checkAuthBeforeGoingToThePage'
-export * from './showSuccessMessageIfCompleteAuth'
+export * from './showSuccessMessag'
 
