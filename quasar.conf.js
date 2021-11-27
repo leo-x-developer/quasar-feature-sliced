@@ -90,6 +90,7 @@ module.exports = configure(function (ctx) {
       chainWebpack (chain) {
         chain.resolve.alias
           .set('@app', path.resolve(__dirname, './src/app'))
+          .set('@widgets', path.resolve(__dirname, './src/widgets'))
           .set('@entities', path.resolve(__dirname, './src/entities'))
           .set('@features', path.resolve(__dirname, './src/features'))
           .set('@pages', path.resolve(__dirname, './src/pages'))
