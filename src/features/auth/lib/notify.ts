@@ -1,16 +1,19 @@
 import { Notify } from 'quasar'
+import { viewerModel } from '@entities/viewer'
 
-export const success = () => {
+export const success = (greeting = 'Hello') => {
+  const ViewerName = viewerModel.store().viewer?.name
+
   return Notify.create({
-    message: 'Authentication was successful!',
+    message: `${greeting}, ${ViewerName}!`,
     color: 'teal',
     position: 'top-right'
   })
 }
 
-export const error = () => {
+export const error = (message = 'Hello') => {
   return Notify.create({
-    message: 'Authentification problem... Сheck your details!',
+    message,
     color: 'negative',
   })
 }

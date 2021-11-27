@@ -1,13 +1,13 @@
-import {Email, Id, Image} from '@shared/types';
+import {Date, Email, Id, Image} from '@shared/types';
 
 export enum BASE_AUTH_URL {
   login = 'auth/local',
   register = 'auth/local/register',
 }
 
-export type Token = {
+export type JwtToken = {
   jwt: string,
-  user: IUser
+  user: IUserRawData
 }
 
 export interface IUser {
@@ -15,7 +15,23 @@ export interface IUser {
   name: string | null,
   email: Email | null,
   role: Role
-  orders:IOrder[]
+  orders:IOrder[],
+  confirmed: boolean,
+  blocked: boolean,
+  createdAt: Date,
+  updatedAt: Date,
+}
+
+export interface IUserRawData {
+  id: Id,
+  email: Email | null,
+  role: Role
+  orders:IOrder[],
+  confirmed: boolean,
+  blocked: boolean,
+  createdAt: Date,
+  updatedAt: Date,
+  username: string
 }
 
 export interface IUserDtoLogin {
@@ -46,9 +62,14 @@ export interface IOrder {
   totalSum: number
 }
 
+export enum Roles {
+  client = 'client',
+  cook = 'cook'
+}
+
 export type Role = {
   id: Id,
-  name: 'client' | 'cook',
+  name: Roles.cook | Roles.client,
   description: string,
   type: string
 }

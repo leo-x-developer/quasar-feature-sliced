@@ -68,8 +68,8 @@ export default defineComponent({
     Form,
   },
 
-  setup() {
-    const { submit, schema } = useRegistrationForm()
+  setup(_, { emit }) {
+    const { submit, schema } = useRegistrationForm(emit)
 
     return {
       submit,

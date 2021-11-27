@@ -1,11 +1,9 @@
 import * as yup from 'yup';
 import { ref } from 'vue';
-import { useRouter } from 'vue-router'
 import { IUserDtoRegistration } from '@shared/api';
 import { authModel } from '@features/auth';
 
-export const useRegistrationForm = () => {
-  const router = useRouter();
+export const useRegistrationForm = (emit:any) => {
   const { register } = authModel.useAuth()
 
   const rememberMe = ref(true)
@@ -19,7 +17,7 @@ export const useRegistrationForm = () => {
 
   const submit = async (user: IUserDtoRegistration) => {
     await register(user, rememberMe.value)
-    router.go(0)
+    emit('registered')
   };
 
   return {

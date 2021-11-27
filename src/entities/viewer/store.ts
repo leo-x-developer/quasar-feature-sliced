@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { Viewer } from '@shared/api';
+import { Roles, Viewer}  from '@shared/api';
 import { jwt } from '@shared/api/bakery'
 
 export const useViewerStore = defineStore('viewer', {
@@ -8,6 +8,12 @@ export const useViewerStore = defineStore('viewer', {
   } as {
     viewer: Viewer
   }),
+
+  getters: {
+    homePage: (state) => state.viewer?.role.name === Roles.client
+      ? 'ClientHome'
+      : 'CookHome'
+  },
 
   actions: {
     setViewer(payload: Viewer) {
