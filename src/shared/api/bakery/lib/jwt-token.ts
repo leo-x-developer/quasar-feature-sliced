@@ -1,6 +1,7 @@
 import { Cookies } from 'quasar';
 import { AUTH_KEY } from '@shared/api/bakery';
 import { JwtToken } from '@shared/api';
+import { transformRawDataToViewerData } from '@shared/api/bakery';
 
 const jwtToken:JwtToken = Cookies.get(AUTH_KEY)
 
@@ -14,7 +15,7 @@ export const token = () => {
 
 export const viewer = () => {
   if(jwtToken) {
-    return jwtToken.user
+    return transformRawDataToViewerData(jwtToken.user)
   } else {
     return null
   }
