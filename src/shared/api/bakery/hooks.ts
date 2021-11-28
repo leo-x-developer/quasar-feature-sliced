@@ -30,13 +30,26 @@ export const useApi = (endpoint: string) => {
       })
       .finally(() => loading.value = false)
   }
+  const put = (payload?: Record<string, any>) => {
+    loading.value = true
+    error.value = undefined
+
+    return http.put(endpoint, payload)
+      .then(res => data.value = res.data)
+      .catch(e => {
+        error.value = e
+        throw e
+      })
+      .finally(() => loading.value = false)
+  }
 
   return {
     data,
     loading,
     error,
     get,
-    post
+    post,
+    put
   }
 }
 

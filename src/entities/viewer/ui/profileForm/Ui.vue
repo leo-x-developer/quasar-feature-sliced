@@ -1,6 +1,5 @@
 <template>
   <q-page class="full-height column" padding>
-    <h4 class="q-my-md">Client Profile Page</h4>
     <Form
       :validation-schema="schema"
       @submit="submit"
@@ -11,6 +10,7 @@
         v-slot="{ errorMessage, value, field }"
       >
         <q-input
+          disable
           :model-value="value"
           v-bind="field"
           :error-message="errorMessage"
@@ -24,7 +24,6 @@
         v-slot="{ errorMessage, value, field }"
       >
         <q-input
-          disable
           :model-value="value"
           v-bind="field"
           :error-message="errorMessage"
@@ -44,10 +43,12 @@
 </template>
 
 <script lang="ts">
+import * as yup from 'yup';
 import { defineComponent } from 'vue';
 import { Field, Form } from 'vee-validate';
-import * as yup from 'yup';
 import { viewerModel } from '@entities/viewer';
+import { Viewer } from '@shared/api';
+import { appNotify } from '@shared/notifications';
 
 export default defineComponent({
   components: {
@@ -57,14 +58,13 @@ export default defineComponent({
 
   setup() {
     const viewer = viewerModel.store().viewer
-
     const schema = yup.object({
-      name: yup.string().min(1),
-      email:yup.string().min(1),
+      username: yup.string().min(1),
     });
 
-    const submit = (dto:any) => {
-      console.log(dto)
+    const submit = async (dto:Partial<Viewer>) => {
+      await viewerModel.store().updateProfile(dto)
+      appNotify.success('Profile has been updated')
     };
 
     return {

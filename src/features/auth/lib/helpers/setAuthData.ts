@@ -1,5 +1,5 @@
 import { JwtToken } from '@shared/api';
-import {jwt, transformRawDataToViewerData} from '@shared/api/bakery';
+import { jwt, transformRawDataToViewerData } from '@shared/api/bakery';
 import { viewerModel } from '@entities/viewer';
 import { authModel } from '@features/auth';
 import { Ref } from 'vue'

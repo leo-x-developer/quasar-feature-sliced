@@ -1,4 +1,4 @@
-import {Date, Email, Id, Image} from '@shared/types';
+import { Date, Email, Id, Image } from '@shared/types';
 
 export enum BASE_AUTH_URL {
   login = 'auth/local',

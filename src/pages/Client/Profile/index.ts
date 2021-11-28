@@ -1,1 +1,1 @@
-export * from './ui'
+export {default as ClientProfile} from './Ui.vue'

@@ -33,6 +33,7 @@ module.exports = configure(function (ctx) {
     boot: [
       'pinia',
       'axios',
+      'app',
       'processes'
     ],
 

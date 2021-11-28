@@ -17,8 +17,7 @@
     "pinia": "^2.0.4",
     "quasar": "^2.0.0",
     "vee-validate": "^4.5.5",
-    "yup": "^0.32.11",
-    "zod": "^3.10.0-beta.1"
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
