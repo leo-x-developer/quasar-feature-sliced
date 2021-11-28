@@ -4,6 +4,7 @@ import { ClientHome } from '@pages/Client'
 import { CookHome } from '@pages/Cook'
 import { Login, Registration } from '@pages/Auth';
 import { Roles } from '@shared/api';
+import { ClientProfile } from '@pages/Client';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,6 +16,11 @@ const routes: RouteRecordRaw[] = [
         path: '',
         name: 'ClientHome',
         component: ClientHome,
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: ClientProfile,
       },
     ],
   },
