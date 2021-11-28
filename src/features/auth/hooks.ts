@@ -14,7 +14,7 @@ export const useAuth = () => {
       const { data } = await authModel.api.register(dto)
       authModel.setAuthData(data, remember)
     } catch (e) {
-      authModel.notify.error('Registration erro!')
+      authModel.notify.error('Registration error!')
     }
     finally {
       authModel.preloader.hide()

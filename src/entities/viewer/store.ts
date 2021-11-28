@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
 import { Roles, Viewer}  from '@shared/api';
-import { jwt } from '@shared/api/bakery'
+import { bakeryApi } from '@shared/api'
 
 export const useViewerStore = defineStore('viewer', {
   state: () => ({
-    viewer: jwt.viewer()
+    viewer: null
   } as {
     viewer: Viewer
   }),
@@ -25,6 +25,14 @@ export const useViewerStore = defineStore('viewer', {
       this.$patch((state) => {
         state.viewer = null;
       });
+    },
+    async updateProfile(payload:Partial<Viewer>) {
+      const { viewer } = await bakeryApi.users.updateById({
+        userId: this.viewer?.id!,
+        params:payload
+      })
+      // @ts-ignore
+      this.setViewer(viewer)
     }
   }
 })
