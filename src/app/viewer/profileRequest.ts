@@ -4,9 +4,9 @@ import { authModel } from '@features/auth';
 
 export const profileRequest = async () => {
   const viewerStore = viewerModel.store()
-  const { loggedIn } = authModel.store()
+  const authStore = authModel.store()
 
-  if (loggedIn) {
+  if (authStore.loggedIn) {
     const { viewer } = await bakeryApi.users.profile()
     // @ts-ignore
     viewerStore.setViewer(viewer)
