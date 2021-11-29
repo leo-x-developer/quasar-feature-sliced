@@ -49,7 +49,7 @@ module.exports = configure(function (ctx) {
       // 'fontawesome-v5',
       // 'eva-icons',
       // 'themify',
-      // 'line-awesome',
+      'line-awesome',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
       'roboto-font', // optional, you are not bound to it
@@ -91,12 +91,13 @@ module.exports = configure(function (ctx) {
       chainWebpack (chain) {
         chain.resolve.alias
           .set('@app', path.resolve(__dirname, './src/app'))
-          .set('@widgets', path.resolve(__dirname, './src/widgets'))
           .set('@entities', path.resolve(__dirname, './src/entities'))
           .set('@features', path.resolve(__dirname, './src/features'))
           .set('@pages', path.resolve(__dirname, './src/pages'))
           .set('@processes', path.resolve(__dirname, './src/processes'))
           .set('@shared', path.resolve(__dirname, './src/shared'))
+          .set('@widgets', path.resolve(__dirname, './src/widgets'))
+          .set('@layouts', path.resolve(__dirname, './src/layouts'))
       },
     },
 

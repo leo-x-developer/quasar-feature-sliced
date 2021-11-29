@@ -10,16 +10,17 @@
         flatc
         round
         icon="menu"
-        @click="toggleLeftDrawer"
+        @click="$emit('toggleLeftDrawer')"
       />
-
       <q-toolbar-title>
-        <q-avatar>
-          <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
-        </q-avatar>
-        Quasar feature-sliced
+        <bakery-logo
+          class="cursor-pointer"
+          @click="$router.push({ path: '/' })"
+        />
       </q-toolbar-title>
+
       <q-space/>
+      <to-profile-button/>
       <logout-button />
     </q-toolbar>
   </q-header>
@@ -28,17 +29,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { LogoutButton } from '@features/auth';
+import { ToProfileButton } from '@entities/viewer';
+import { BakeryLogo } from '@shared/components';
 
 export default defineComponent({
-  components: { LogoutButton },
-
-  setup (_, { emit }) {
-    const toggleLeftDrawer = () => emit('toggleLeftDrawer')
-
-    return {
-      toggleLeftDrawer
-    }
-  }
+  components: {
+    BakeryLogo,
+    LogoutButton,
+    ToProfileButton
+  },
 });
 </script>
 

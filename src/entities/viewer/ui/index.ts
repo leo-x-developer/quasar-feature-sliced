@@ -1,1 +1,2 @@
-export { ProfileForm } from './profileForm'
+export * from './ProfileForm'
+export * from './ToProfileButton'
