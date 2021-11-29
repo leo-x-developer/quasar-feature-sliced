@@ -1,6 +1,6 @@
 <template>
   <q-page class="full-height column" padding>
-    <h4 class="q-my-md">Client Profile Page</h4>
+    <h4 class="q-my-md">Profile Page</h4>
     <profile-form />
   </q-page>
 </template>

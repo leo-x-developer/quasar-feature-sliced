@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
-import TheHeader from '@widgets/layouts/ViewerLayout/ui/TheHeader.vue'; // need to fix
+import { TheHeader } from '@widgets/TheHeader';
 
 export default defineComponent({
   components: {
