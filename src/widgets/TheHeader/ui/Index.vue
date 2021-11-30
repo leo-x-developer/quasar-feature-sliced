@@ -30,7 +30,7 @@
 import { defineComponent } from 'vue'
 import { LogoutButton } from '@features/auth';
 import { ToProfileButton } from '@entities/viewer';
-import { BakeryLogo } from '@shared/components';
+import { BakeryLogo } from '@shared/ui';
 
 export default defineComponent({
   components: {

@@ -12,7 +12,7 @@ export const useAuth = () => {
     authModel.preloader.show()
     try {
       const { data } = await authModel.api.register(dto)
-      authModel.setAuthData(data, remember)
+      authModel.actions.setAuthData(data, remember)
     } catch (e) {
       authModel.notify.error('Registration error!')
     }
@@ -25,7 +25,7 @@ export const useAuth = () => {
     authModel.preloader.show()
     try {
       const { data } = await authModel.api.login(dto)
-      authModel.setAuthData(data, remember)
+      authModel.actions.setAuthData(data, remember)
     } catch (e) {
       authModel.notify.error('Login error!')
     }

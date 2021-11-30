@@ -1,1 +1,1 @@
-export * as viewerModel from './model'
+export * as orderModel from './model'

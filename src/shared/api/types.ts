@@ -76,3 +76,5 @@ export type Role = {
 
 export type Viewer = IUser | null
 export type Order = IOrder | null
+export type Product = IProduct | null
+export type Products = Product[] | null

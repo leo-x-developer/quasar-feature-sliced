@@ -1,9 +1,9 @@
 import { AxiosRequestConfig } from 'axios';
-import { jwt } from '@shared/api/bakery';
+import { authModel } from '@features/auth';
 
 const injectToken = (config: AxiosRequestConfig): AxiosRequestConfig => {
   try {
-    const token = jwt.token()
+    const token = authModel.store().token  // to refactor layers !
     const tokenType = 'Bearer'
 
     if (token) {

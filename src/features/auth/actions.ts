@@ -1,7 +1,7 @@
 import { JwtToken } from '@shared/api';
-import { jwt, transformRawDataToViewerData } from '@shared/api/bakery';
+import { jwt, transformRawDataToViewerData} from '@shared/api/bakery';
 import { viewerModel } from '@entities/viewer';
-import { authModel } from '@features/auth';
+import { authModel } from '@features/auth/index';
 import { Ref } from 'vue'
 
 export const setAuthData = (data: Ref<JwtToken>, remember:boolean) => {
@@ -10,7 +10,6 @@ export const setAuthData = (data: Ref<JwtToken>, remember:boolean) => {
 
   jwt.setToken(data.value, remember)
   authStore.setToken(data.value.jwt)
-
   // @ts-ignore
   viewerStore.setViewer(transformRawDataToViewerData(data.value.user))
 }
