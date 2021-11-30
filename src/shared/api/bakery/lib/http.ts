@@ -1,4 +1,4 @@
-import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import applyCaseMiddleware from 'axios-case-converter';
 import { handleError, injectToken } from '@shared/api/bakery';
 
@@ -7,7 +7,7 @@ const headers: Readonly<Record<string, string | boolean>> = {
   'Content-Type': 'application/json; charset=utf-8',
 };
 
-class Http {
+export class Http {
   private instance: AxiosInstance | null = null;
 
   private get http(): AxiosInstance {
@@ -62,5 +62,3 @@ class Http {
     return this.http.delete<T, R>(url, config);
   }
 }
-
-export const http = new Http();

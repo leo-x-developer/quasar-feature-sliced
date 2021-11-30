@@ -1,18 +1,19 @@
-import {transformRawDataToViewerData, useApi} from '@shared/api/bakery';
-import {Viewer} from '@shared/api';
+import { transformRawDataToViewerData, useApi } from '@shared/api/bakery';
+import { Viewer } from '@shared/api';
+import { Id } from '@shared/types';
 
 enum BASE_URL {
   users = '/users'
 }
 
 type GetAllUsersParams = {
-  userIds: number[];
+  userIds: Id[];
 };
 type GetUserByIdParams = {
-  userId: number;
+  userId: Id;
 };
 type UpdateUserByIdParams = {
-  userId: number;
+  userId: Id;
   params: Partial<Viewer>
 };
 
@@ -23,6 +24,22 @@ export const all = async (params?: GetAllUsersParams) => {
     error,
     get
   } = useApi(BASE_URL.users)
+
+  await get(params)
+
+  return {
+    data,
+    loading,
+    error,
+  }
+}
+export const findById = async ({ userId, ...params }: GetUserByIdParams) => {
+  const {
+    data,
+    loading,
+    error,
+    get
+  } = useApi(`${BASE_URL.users}/${userId}`)
 
   await get(params)
 
@@ -45,22 +62,6 @@ export const profile = async () => {
 
   return {
     viewer,
-    loading,
-    error,
-  }
-}
-export const findById = async ({ userId, ...params }: GetUserByIdParams) => {
-  const {
-    data,
-    loading,
-    error,
-    get
-  } = useApi(`${BASE_URL.users}/${userId}`)
-
-  await get(params)
-
-  return {
-    data,
     loading,
     error,
   }

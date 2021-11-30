@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { http } from '@shared/api/bakery';
+import { http } from 'src/boot/axios';
 
 export const useApi = (endpoint: string) => {
   const loading = ref(true)

@@ -116,10 +116,10 @@ module.exports = configure(function (ctx) {
       // lang: 'en-US', // Quasar language pack
 
       // For special cases outside of where the auto-import strategy can have an impact
-      // (like functional components as one of the examples),
-      // you can manually specify Quasar components/directives to be available everywhere:
+      // (like functional ui as one of the examples),
+      // you can manually specify Quasar ui/directives to be available everywhere:
       //
-      // components: [],
+      // ui: [],
       // directives: [],
 
       // Quasar plugins
