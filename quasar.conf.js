@@ -69,6 +69,7 @@ module.exports = configure(function (ctx) {
       },
 
 
+
       // transpile: false,
       // publicPath: '/',
 
@@ -81,7 +82,7 @@ module.exports = configure(function (ctx) {
       // preloadChunks: true,
       // showProgress: false,
       // gzip: true,
-      // analyze: true,
+      analyze: true,
 
       // Options below are automatically set depending on the env, set them if you want to override
       // extractCSS: false,
@@ -91,13 +92,13 @@ module.exports = configure(function (ctx) {
       chainWebpack (chain) {
         chain.resolve.alias
           .set('@app', path.resolve(__dirname, './src/app'))
-          .set('@entities', path.resolve(__dirname, './src/entities'))
-          .set('@features', path.resolve(__dirname, './src/features'))
-          .set('@pages', path.resolve(__dirname, './src/pages'))
           .set('@processes', path.resolve(__dirname, './src/processes'))
-          .set('@shared', path.resolve(__dirname, './src/shared'))
-          .set('@widgets', path.resolve(__dirname, './src/widgets'))
           .set('@layouts', path.resolve(__dirname, './src/layouts'))
+          .set('@pages', path.resolve(__dirname, './src/pages'))
+          .set('@widgets', path.resolve(__dirname, './src/widgets'))
+          .set('@features', path.resolve(__dirname, './src/features'))
+          .set('@entities', path.resolve(__dirname, './src/entities'))
+          .set('@shared', path.resolve(__dirname, './src/shared'))
       },
     },
 

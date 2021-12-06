@@ -1,9 +1,9 @@
 import { Cookies } from 'quasar';
-import { AUTH_KEY } from '@shared/api/bakery';
+import { bakeryAuthKey } from '@shared/api/bakery';
 import { JwtToken } from '@shared/api';
 import { transformRawDataToViewerData } from '@shared/api/bakery';
 
-const jwtToken:JwtToken = Cookies.get(AUTH_KEY)
+const jwtToken:JwtToken = Cookies.get(bakeryAuthKey)
 
 export const token = () => {
   if(jwtToken) {
@@ -23,10 +23,10 @@ export const viewer = () => {
 
 export const setToken = (payload: JwtToken, remember: boolean) => {
   if (payload && remember) {
-    Cookies.set(AUTH_KEY, JSON.stringify(payload), {expires: '2h'});
+    Cookies.set(bakeryAuthKey, JSON.stringify(payload), {expires: '2h'});
   }
 }
 
 export const removeToken = () => {
-  Cookies.remove(AUTH_KEY);
+  Cookies.remove(bakeryAuthKey);
 }

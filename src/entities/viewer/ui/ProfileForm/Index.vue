@@ -45,7 +45,7 @@ import { defineComponent } from 'vue';
 import { Field, Form } from 'vee-validate';
 import { viewerModel } from '@entities/viewer';
 import { Viewer } from '@shared/api';
-import { appNotify } from '@shared/notifications';
+import { appNotify } from '@shared/lib/notifications';
 
 export default defineComponent({
   components: {

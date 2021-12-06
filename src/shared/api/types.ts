@@ -46,12 +46,55 @@ export interface IUserDtoRegistration {
   password: string
 }
 
+export interface strapiImg {
+  id: Id,
+  name: string,
+  alternativeText: string,
+  caption: string,
+  width: number,
+  height: number,
+  formats: {
+    thumbnail: {
+      name: string,
+      hash: string,
+      ext:  string,
+      mime: string,
+      width: number,
+      height: number,
+      size: number,
+      path: string,
+      url: string
+    },
+    mall: {
+      name: string,
+      hash: string,
+      ext:  string,
+      mime: string,
+      width: number,
+      height: number,
+      size: number,
+      path: string,
+      url: string
+    }
+  },
+  hash: string,
+  ext:  string,
+  mime: string,
+  size: number,
+  url: Image,
+  previewUrl: string,
+  provider: string,
+  provider_metadata: string,
+  created_at: Date,
+  updated_at: Date
+}
+
 export interface IProduct {
   id?: Id,
   name: string,
   description: string,
   price: number,
-  img: Image
+  img: strapiImg
 }
 
 export interface IOrder {

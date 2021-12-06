@@ -1,6 +1,7 @@
 import { useApi } from '@shared/api/bakery';
-import { Viewer } from '@shared/api';
+import { Product, Viewer } from '@shared/api';
 import { Id } from '@shared/types';
+import { formatRawProduct } from '@shared/api/bakery/products/helpers';
 
 enum BASE_URL {
   products = '/products'
@@ -24,9 +25,10 @@ export const all = async () => {
   } = useApi(BASE_URL.products)
 
   await get()
+  const products = data.value.map((product:Product) => formatRawProduct(product))
 
   return {
-    data,
+    products,
     loading,
     error,
   }
