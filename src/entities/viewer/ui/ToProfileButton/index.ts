@@ -1,1 +1,1 @@
-export { default as ToProfileButton } from './Ui.vue'
+export { default as ToProfileButton } from './Index.vue'
