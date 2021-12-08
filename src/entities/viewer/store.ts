@@ -11,8 +11,8 @@ export const useViewerStore = defineStore('viewer', {
 
   getters: {
     homePage: (state) => state.viewer?.role.name === Roles.client
-      ? 'ClientHome'
-      : 'CookHome'
+      ? 'ClientHomePage'
+      : 'CookHomePage'
   },
 
   actions: {

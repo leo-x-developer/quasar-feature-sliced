@@ -1,3 +1,3 @@
-export * from './Login'
-export * from './Registration'
+export { LoginPage } from './LoginPage.vue'
+export { RegistrationPage } from './RegistrationPage.vue'
 export * from './model'

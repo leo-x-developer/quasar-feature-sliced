@@ -15,13 +15,15 @@
 </template>
 
 <script lang="ts">
-import { ProductsList } from '@entities/product/ui/ProductsList'
 import { defineComponent } from 'vue'
+import { ProductsList } from '@entities/product'
 
-export default defineComponent({
+export const ClientHomePage = defineComponent({
   name: 'Home',
   components: {
     ProductsList
   },
 })
+
+export default ClientHomePage
 </script>

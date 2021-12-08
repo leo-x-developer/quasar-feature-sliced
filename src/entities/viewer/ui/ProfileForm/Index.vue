@@ -47,7 +47,7 @@ import { viewerModel } from '@entities/viewer';
 import { Viewer } from '@shared/api';
 import { appNotify } from '@shared/lib/notifications';
 
-export default defineComponent({
+export const ProfileForm = defineComponent({
   components: {
     Field,
     Form
@@ -71,4 +71,6 @@ export default defineComponent({
     };
   }
 });
+
+export default ProfileForm
 </script>

@@ -24,7 +24,7 @@
 import { ref, defineComponent } from 'vue'
 import { TheHeader } from '@widgets/TheHeader';
 
-export default defineComponent({
+export const ViewerLayout = defineComponent({
   components: {
     TheHeader
   },
@@ -40,4 +40,6 @@ export default defineComponent({
     }
   }
 });
+
+export default ViewerLayout
 </script>

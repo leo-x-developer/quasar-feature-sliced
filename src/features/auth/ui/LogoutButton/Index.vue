@@ -9,7 +9,7 @@ import { useQuasar } from 'quasar'
 import { defineComponent } from 'vue';
 import { authModel } from '@features/auth';
 
-export default defineComponent({
+export const LogoutButton = defineComponent({
   setup() {
     const $q = useQuasar()
     const { logout } = authModel.useAuth()
@@ -31,4 +31,6 @@ export default defineComponent({
     }
   }
 });
+
+export default LogoutButton
 </script>

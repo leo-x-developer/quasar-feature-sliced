@@ -62,7 +62,7 @@ import { Field, Form } from 'vee-validate';
 import { defineComponent } from 'vue';
 import { useRegistrationForm } from '@features/auth';
 
-export default defineComponent({
+export const RegistrationForm = defineComponent({
   components: {
     Field,
     Form,
@@ -76,6 +76,7 @@ export default defineComponent({
       schema,
     };
   },
-
 });
+
+export default RegistrationForm
 </script>

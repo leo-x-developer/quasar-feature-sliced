@@ -1,1 +1,1 @@
-export * from './Home'
+export { ClientHomePage } from './ClientHomePage.vue'
