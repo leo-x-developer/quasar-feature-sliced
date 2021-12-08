@@ -30,11 +30,13 @@
 import { defineComponent, PropType } from 'vue'
 import { Product } from '@shared/api';
 
-export default defineComponent({
+export const ProductCard = defineComponent({
   props: {
     product: Object as PropType<Product>
   },
 })
+
+export default ProductCard
 </script>
 
 <style lang="sass" scoped>

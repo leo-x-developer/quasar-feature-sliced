@@ -1,11 +1,10 @@
 import { RouteRecordRaw } from 'vue-router';
-import { AuthLayout } from '@layouts/AuthLayout';
-import { ViewerLayout } from '@layouts/ViewerLayout';
-import { ClientHome } from '@pages/Client'
-import { CookHome } from '@pages/Cook'
-import { Login, Registration } from '@pages/Auth';
+import { LoginPage, RegistrationPage } from '@pages/Auth';
+import { AuthLayout, ViewerLayout } from 'src/layouts';
+import { ClientHomePage } from '@pages/Client'
+import { CookHomePage } from '@pages/Cook'
+import { Profile, Error404 } from 'src/pages';
 import { Roles } from '@shared/api';
-import { Profile } from '@pages/Profile';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,14 +14,14 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '',
-        name: 'ClientHome',
-        component: ClientHome,
+        name: 'ClientHomePage',
+        component: ClientHomePage,
         meta: { requiresAuth: true, authorize: [Roles.client] },
       },
       {
         path: '',
-        name: 'CookHome',
-        component: CookHome,
+        name: 'CookHomePage',
+        component: CookHomePage,
         meta: { requiresAuth: true, authorize: [Roles.cook] },
       },
       {
@@ -39,22 +38,21 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'login',
         name: 'Login',
-        component: Login
+        component: LoginPage
       },
       {
         path: 'registration',
         name: 'Registration',
-        component: Registration
+        component: RegistrationPage
       }
     ],
   },
-
 
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('@pages/Error404.vue'),
+    component: Error404,
   },
 ];
 

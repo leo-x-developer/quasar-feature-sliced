@@ -1,18 +1,18 @@
 <template>
   <q-page class="full-height column flex-center" padding>
-    <h3>Registration</h3>
-    <registration-form @registered="goToViewerHome"/>
+    <h3>Login</h3>
+    <login-form @login="goToViewerHome"/>
   </q-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { RegistrationForm } from '@features/auth';
-import { useAuthPages } from '@pages/Auth';
+import { LoginForm } from '@features/auth';
+import { useAuthPages } from '@pages/Auth/index';
 
-export default defineComponent({
+export const LoginPage = defineComponent({
   components: {
-    RegistrationForm
+    LoginForm
   },
 
   setup() {
@@ -23,4 +23,6 @@ export default defineComponent({
     }
   }
 });
+
+export default LoginPage
 </script>

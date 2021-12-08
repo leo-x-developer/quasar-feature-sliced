@@ -9,7 +9,9 @@
 import { defineComponent } from 'vue';
 import { ProfileForm } from '@entities/viewer';
 
-export default defineComponent({
+export const Profile = defineComponent({
   components: { ProfileForm },
 });
+
+export default Profile
 </script>

@@ -1,1 +1,1 @@
-export * from './ui'
+export { TheHeader } from './Ui.vue'

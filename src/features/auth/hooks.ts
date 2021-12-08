@@ -27,7 +27,7 @@ export const useAuth = () => {
       const { data } = await authModel.api.login(dto)
       authModel.actions.setAuthData(data, remember)
     } catch (e) {
-      authModel.notify.error('Login error!')
+      authModel.notify.error('LoginPage error!')
     }
     finally {
       authModel.preloader.hide()

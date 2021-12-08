@@ -1,2 +1,2 @@
-export { ProductsList } from './ProductsList'
-export { ProductCard } from './ProductCard'
+export * from './ProductsList'
+export * from './ProductCard'

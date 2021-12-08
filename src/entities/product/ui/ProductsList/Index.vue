@@ -16,7 +16,7 @@ import { defineComponent } from 'vue'
 import { productModel } from '@entities/product';
 import { ProductCard } from '@entities/product/ui/ProductCard';
 
-export default defineComponent({
+export const ProductsList = defineComponent({
   components: {
     ProductCard
   },
@@ -31,4 +31,6 @@ export default defineComponent({
     }
   }
 })
+
+export default ProductsList
 </script>

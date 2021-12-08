@@ -1,1 +1,1 @@
-export { default as ProductCard } from './Index.vue'
+export { ProductCard } from './Index.vue'

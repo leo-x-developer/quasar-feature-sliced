@@ -8,3 +8,9 @@
     :to="{ name: 'Profile' }"
   />
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+export const ToProfileButton = defineComponent({})
+export default ToProfileButton
+</script>

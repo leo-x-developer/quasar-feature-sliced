@@ -32,12 +32,14 @@ import { LogoutButton } from '@features/auth';
 import { ToProfileButton } from '@entities/viewer';
 import { BakeryLogo } from '@shared/ui';
 
-export default defineComponent({
+export const TheHeader = defineComponent({
   components: {
     BakeryLogo,
     LogoutButton,
     ToProfileButton
   },
 });
+
+export default TheHeader
 </script>
 

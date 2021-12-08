@@ -1,1 +1,1 @@
-export { default as ProfileForm } from './Index.vue'
+export { ProfileForm } from './Index.vue'

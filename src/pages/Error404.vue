@@ -25,7 +25,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-export default defineComponent({
-  name: 'Error404'
-})
+export const Error404 = defineComponent({})
+export default Error404
 </script>

@@ -1,1 +1,1 @@
-export * from './Home'
+export { CookHomePage } from './CookHomePage.vue'

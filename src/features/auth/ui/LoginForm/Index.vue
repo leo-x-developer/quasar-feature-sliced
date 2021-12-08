@@ -42,7 +42,7 @@ import { Field, Form } from 'vee-validate';
 import { defineComponent } from 'vue';
 import { useLoginForm } from '@features/auth';
 
-export default defineComponent({
+export const LoginForm = defineComponent({
   components: {
     Field,
     Form,
@@ -56,6 +56,7 @@ export default defineComponent({
       schema
     };
   },
-
 });
+
+export default LoginForm
 </script>

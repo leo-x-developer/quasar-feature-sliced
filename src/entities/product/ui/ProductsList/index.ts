@@ -1,1 +1,1 @@
-export { default as ProductsList } from './Index.vue'
+export { ProductsList } from './Index.vue'
