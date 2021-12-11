@@ -1,27 +1,26 @@
 <template>
-  <q-card
-    class="my-card"
-    flat
-    bordered
-  >
-    <q-img height="250px" :src="product.img.url"/>
+  <q-card class="my-card">
+
+    <q-img
+      height="250px"
+      :src="product.img.url"
+      @click="goToProductPage()"
+    />
 
     <q-card-section>
-      <div class="text-h5 q-mt-sm q-mb-xs">
+      <a
+        class="text-h5 q-mt-sm q-mb-xs cursor-pointer q-pr-lg q-py-md"
+        @click="goToProductPage()"
+      >
         {{ product.name }}
-      </div>
+      </a>
       <div class="text-caption text-grey">
         {{ product.description }}
       </div>
     </q-card-section>
 
     <q-card-actions>
-      <q-btn flat color="dark" label="Share" />
-
-      <q-space />
-
-      <q-btn flat color="primary" label="Book" />
-
+      <q-btn flat color="primary" label="Card" />
     </q-card-actions>
   </q-card>
 </template>
@@ -29,11 +28,27 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { Product } from '@shared/api';
+import { useRouter } from 'vue-router';
 
 export const ProductCard = defineComponent({
   props: {
     product: Object as PropType<Product>
   },
+
+  setup(props) {
+    const router = useRouter()
+
+    const goToProductPage = () => {
+      return router.push({
+        name: 'ProductPage',
+        params: { id: props.product?.id }
+      })
+    }
+
+    return {
+      goToProductPage
+    }
+  }
 })
 
 export default ProductCard
@@ -48,15 +63,17 @@ export default ProductCard
   justify-content: space-between
   border: none
   overflow: hidden
-  border-bottom: 1px dashed rgba($dark, .2)
 
   .q-img
     transition: all .5s ease-out
     cursor: pointer
 
   &:hover
-    border-bottom: 1px solid rgba($dark, .4)
     .q-img
       transform: scale(1.1)
 
+a
+  transition: all .3s ease-out
+  &:hover
+    color: $primary
 </style>

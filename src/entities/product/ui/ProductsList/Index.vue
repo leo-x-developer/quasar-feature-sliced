@@ -2,7 +2,7 @@
   <div>
     <h3 class="q-my-md">Product List</h3>
     <div class="q-pa-md row q-gutter-md">
-      <ProductCard
+      <product-card
         v-for="product in allProducts"
         :key="product.id"
         :product="product"
@@ -23,7 +23,7 @@ export const ProductsList = defineComponent({
 
   async setup() {
     const productStore = productModel.store()
-    await productModel.actions.mountProducts()
+    await productStore.mountProducts()
     const allProducts = productStore.products
 
     return {

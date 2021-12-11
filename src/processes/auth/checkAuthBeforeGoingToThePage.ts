@@ -11,15 +11,22 @@ export const checkAuthBeforeGoingToThePage = (router:Router) => {
     const authorize = to.meta.authorize
 
     if (to.meta.requiresAuth && !authStore.loggedIn) {
-      next({name: 'Login'})
+      next({ name: 'Login' })
     }
 
-    else if ((to.name == 'Login' || to.name == 'Registration') && authStore.loggedIn) {
-      next({ name: viewerStore.homePage, replace: true})
+    else if (
+      (to.name == 'Login' || to.name == 'Registration')
+      && authStore.loggedIn
+    ) {
+      next({ name: viewerStore.homePage, replace: true })
     }
 
-    else if(authStore.loggedIn && !(authorize as [string])?.includes(role)) {
-      next({ name: viewerStore.homePage, replace: true})
+    else if(
+      to.meta.requiresAuth
+      && authStore.loggedIn
+      && !(authorize as [string])?.includes(role)
+    ) {
+      next({ name: viewerStore.homePage, replace: true })
     }
 
     else next()
