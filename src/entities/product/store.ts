@@ -1,17 +1,18 @@
 import { defineStore } from 'pinia';
-import { Product, Products } from '@shared/api';
+import { bakeryApi, Products } from '@shared/api';
 
 export const useProductStore = defineStore('product', {
   state: () => ({
-    products: null
+    products: null,
   } as {
-    products: Products
+    products: Products,
   }),
 
   actions: {
-    setProducts(payload: Product[]) {
+    async mountProducts() {
+      const { products } = await bakeryApi.products.all()
       this.$patch((state) => {
-        state.products = payload;
+        state.products = products;
       });
     },
     clear() {

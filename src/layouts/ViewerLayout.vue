@@ -13,7 +13,14 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <Suspense>
+        <template #fallback>
+          Loading...
+        </template>
+        <template #default>
+          <router-view />
+        </template>
+      </Suspense>
     </q-page-container>
 
   </q-layout>

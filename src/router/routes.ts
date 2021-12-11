@@ -3,14 +3,13 @@ import { LoginPage, RegistrationPage } from '@pages/Auth';
 import { AuthLayout, ViewerLayout } from 'src/layouts';
 import { ClientHomePage } from '@pages/Client'
 import { CookHomePage } from '@pages/Cook'
-import { Profile, Error404 } from 'src/pages';
+import { Profile, Error404, ProductPage } from 'src/pages';
 import { Roles } from '@shared/api';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: ViewerLayout,
-    meta: { requiresAuth: true, authorize: [Roles.client, Roles.cook] },
     children: [
       {
         path: '',
@@ -28,6 +27,12 @@ const routes: RouteRecordRaw[] = [
         path: 'profile',
         name: 'Profile',
         component: Profile,
+      },
+      {
+        path: 'product/:id',
+        name: 'ProductPage',
+        component: ProductPage,
+        props: true,
       },
     ],
   },

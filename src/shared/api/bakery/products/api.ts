@@ -1,20 +1,11 @@
 import { useApi } from '@shared/api/bakery';
-import { Product, Viewer } from '@shared/api';
+import { Product } from '@shared/api';
 import { Id } from '@shared/types';
-import { formatRawProduct } from '@shared/api/bakery/products/helpers';
+import { formatRawProduct } from './helpers';
 
 enum BASE_URL {
   products = '/products'
 }
-
-type GetProductByIdParams = {
-  productId: Id;
-};
-
-type UpdateProductByIdParams = {
-  productId: Id;
-  params: Partial<Viewer>
-};
 
 export const all = async () => {
   const {
@@ -33,34 +24,20 @@ export const all = async () => {
     error,
   }
 }
-export const findById = async ({ productId, ...params }: GetProductByIdParams) => {
+
+export const byId = async (id: Id) => {
   const {
     data,
     loading,
     error,
     get
-  } = useApi(`${BASE_URL.products}/${productId}`)
+  } = useApi(`${BASE_URL.products}/${id}`)
 
-  await get(params)
-
-  return {
-    data,
-    loading,
-    error,
-  }
-}
-export const updateById = async ({ productId, params }: UpdateProductByIdParams) => {
-  const {
-    data,
-    loading,
-    error,
-    put
-  } = useApi(`${BASE_URL.products}/${productId}`)
-
-  await put({...params})
+  await get()
+  const product = formatRawProduct(data.value)
 
   return {
-    data,
+    product,
     loading,
     error,
   }
