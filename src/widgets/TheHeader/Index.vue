@@ -1,7 +1,7 @@
 <template>
   <q-header
     elevated
-    class="bg-primary text-white"
+    class="bg-primary text-white q-py-sm"
   >
     <q-toolbar>
       <q-btn
@@ -12,7 +12,8 @@
         icon="menu"
         @click="$emit('toggleLeftDrawer')"
       />
-      <q-toolbar-title>
+      <q-toolbar-title shrink>
+
         <bakery-logo
           class="cursor-pointer"
           @click="$router.push({ path: '/' })"
@@ -20,8 +21,11 @@
       </q-toolbar-title>
 
       <q-space/>
-      <to-profile-button/>
-      <logout-button />
+      <div class="q-gutter-x-md">
+        <to-cart-button />
+        <to-profile-button/>
+        <logout-button />
+      </div>
     </q-toolbar>
   </q-header>
 </template>
@@ -30,13 +34,15 @@
 import { defineComponent } from 'vue'
 import { LogoutButton } from '@features/auth';
 import { ToProfileButton } from '@entities/viewer';
+import { ToCartButton } from '@entities/order';
 import { BakeryLogo } from '@shared/ui';
 
 export const TheHeader = defineComponent({
   components: {
     BakeryLogo,
     LogoutButton,
-    ToProfileButton
+    ToProfileButton,
+    ToCartButton
   },
 });
 

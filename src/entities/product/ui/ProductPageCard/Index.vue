@@ -3,7 +3,7 @@
     <q-card-section horizontal>
       <q-card-section class="q-pt-xs">
         <div class="text-h3 text-red text-weight-medium text-right">
-          {{ product.price }} &#8381;
+          {{ product.price }} {{ rubleSign }}
         </div>
         <div class="q-mt-lg text-h6">
           {{ product.description }}
@@ -31,11 +31,19 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { Product } from '@shared/api';
+import { productModel } from '@entities/product';
+
 
 export const ProductPageCard = defineComponent({
   props: {
     product: Object as PropType<Product>
   },
+  setup() {
+    const { rubleSign } = productModel
+    return {
+      rubleSign
+    }
+  }
 })
 
 export default ProductPageCard

@@ -4,6 +4,7 @@ import { AuthLayout, ViewerLayout } from 'src/layouts';
 import { ClientHomePage } from '@pages/Client'
 import { CookHomePage } from '@pages/Cook'
 import { Profile, Error404, ProductPage } from 'src/pages';
+import { Order, Checkout, Cart, Result  } from '@pages/Order'
 import { Roles } from '@shared/api';
 
 const routes: RouteRecordRaw[] = [
@@ -33,6 +34,28 @@ const routes: RouteRecordRaw[] = [
         name: 'ProductPage',
         component: ProductPage,
         props: true,
+      },
+      {
+        path: 'order',
+        component: Order,
+        meta: { requiresAuth: true, authorize: [Roles.client] },
+        children: [
+          {
+            path: '',
+            name: 'Cart',
+            component: Cart,
+          },
+          {
+            path: 'checkout',
+            name: 'Checkout',
+            component: Checkout,
+          },
+          {
+            path: 'result',
+            name: 'Result',
+            component: Result,
+          },
+        ]
       },
     ],
   },

@@ -1,57 +1,50 @@
 <template>
   <q-card class="my-card">
-
     <q-img
       height="250px"
       :src="product.img.url"
       @click="goToProductPage()"
     />
-
     <q-card-section>
-      <a
-        class="text-h5 q-mt-sm q-mb-xs cursor-pointer q-pr-lg q-py-md"
-        @click="goToProductPage()"
-      >
-        {{ product.name }}
-      </a>
+      <div class="row items-center justify-between">
+        <a
+          class="col-shrink text-h5 q-mt-sm q-mb-xs cursor-pointer q-pr-lg q-py-md"
+          @click="goToProductPage()"
+        >
+          {{ product.name }}
+        </a>
+        <span class="col-auto text-red text-weight-bold">
+          {{ product.price }} {{ rubleSign }}
+        </span>
+      </div>
       <div class="text-caption text-grey">
         {{ product.description }}
       </div>
     </q-card-section>
-
-    <q-card-actions>
-      <q-btn flat color="primary" label="Card" />
-    </q-card-actions>
   </q-card>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { Product } from '@shared/api';
-import { useRouter } from 'vue-router';
+import { useProductCardInfo } from '@entities/product';
 
-export const ProductCard = defineComponent({
+export const ProductCardInfo = defineComponent({
   props: {
     product: Object as PropType<Product>
   },
 
   setup(props) {
-    const router = useRouter()
-
-    const goToProductPage = () => {
-      return router.push({
-        name: 'ProductPage',
-        params: { id: props.product?.id }
-      })
-    }
+    const { goToProductPage, rubleSign } = useProductCardInfo(props.product!)
 
     return {
-      goToProductPage
+      goToProductPage,
+      rubleSign
     }
   }
 })
 
-export default ProductCard
+export default ProductCardInfo
 </script>
 
 <style lang="sass" scoped>
