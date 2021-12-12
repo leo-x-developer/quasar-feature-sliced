@@ -2,8 +2,8 @@
   <div>
     <h3 class="q-my-md">Product List</h3>
     <div class="q-pa-md row q-gutter-md">
-      <product-card
-        v-for="product in allProducts"
+      <product-card-item
+        v-for="product in products"
         :key="product.id"
         :product="product"
       />
@@ -13,21 +13,19 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { productModel } from '@entities/product';
-import { ProductCard } from '@entities/product/ui/ProductCard';
+import { bakeryApi } from '@shared/api';
+import { ProductCardItem } from './ProductCardItem.vue';
 
 export const ProductsList = defineComponent({
   components: {
-    ProductCard
+    ProductCardItem
   },
 
   async setup() {
-    const productStore = productModel.store()
-    await productStore.mountProducts()
-    const allProducts = productStore.products
+    const { products, /* error, loading */ } = await bakeryApi.products.all()
 
     return {
-      allProducts
+      products
     }
   }
 })

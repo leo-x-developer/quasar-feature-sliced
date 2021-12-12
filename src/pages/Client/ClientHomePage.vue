@@ -3,23 +3,15 @@
     class="full-height column"
     padding
   >
-    <suspense>
-      <template #default>
-        <products-list />
-      </template>
-      <template #fallback>
-        ...Loading
-      </template>
-    </suspense>
+    <products-list />
   </q-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ProductsList } from '@entities/product'
+import { ProductsList } from '@widgets/ProductsList'
 
 export const ClientHomePage = defineComponent({
-  name: 'Home',
   components: {
     ProductsList
   },
