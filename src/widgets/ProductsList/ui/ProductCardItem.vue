@@ -2,7 +2,7 @@
   <q-card class="product-card-item">
     <product-card-info :product="product" />
     <q-card-actions>
-      <q-btn flat color="primary" label="Card" />
+      <add-product-button :product="product"/>
     </q-card-actions>
   </q-card>
 </template>
@@ -11,10 +11,12 @@
 import { defineComponent, PropType } from 'vue'
 import { Product } from '@shared/api';
 import { ProductCardInfo } from '@entities/product';
+import { AddProductButton } from '@features/order';
 
 export const ProductCardItem = defineComponent({
   components: {
-    ProductCardInfo
+    ProductCardInfo,
+    AddProductButton
   },
   props: {
     product: Object as PropType<Product>
