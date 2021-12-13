@@ -65,6 +65,6 @@ export default Order
 </script>
 
 <style lang="sass" scoped>
-::v-deep .q-stepper__step-inner
+::v-deep(.q-stepper__step-inner)
   display: none
 </style>

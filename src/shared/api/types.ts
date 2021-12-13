@@ -121,3 +121,4 @@ export type Viewer = IUser | null
 export type Order = IOrder | null
 export type Product = IProduct | null
 export type Products = Product[] | null
+export type Cart = Partial<Product>[] | []

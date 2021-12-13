@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="q-my-md">Product List</h3>
+    <h3 class="q-my-md">Список выпечки</h3>
     <div class="q-pa-md row q-gutter-md">
       <product-card-item
         v-for="product in products"
