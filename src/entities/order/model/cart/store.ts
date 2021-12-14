@@ -7,4 +7,8 @@ export const useCart = defineStore('cart', {
   } as {
     cart: Cart
   }),
+
+  getters: {
+    cartCounter: (state) => state.cart.length
+  }
 })
