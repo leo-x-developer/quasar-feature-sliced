@@ -34,7 +34,7 @@
 import { defineComponent } from 'vue'
 import { LogoutButton } from '@features/auth';
 import { ToProfileButton } from '@entities/viewer';
-import { ToCartButton } from '@entities/order';
+import { ToCartButton } from '@features/order';
 import { BakeryLogo } from '@shared/ui';
 
 export const TheHeader = defineComponent({

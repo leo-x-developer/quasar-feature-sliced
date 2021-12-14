@@ -1,2 +1,2 @@
 export * as orderModel from './model'
-export * from './ui'
+export { CartButtonMini, CartCounterBadge } from './model'
