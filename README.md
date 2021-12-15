@@ -1,18 +1,13 @@
-# Quasar App (quasar-feature-sliced)
+## Bakery-app
 
-bakery-app
+### Technology stack
 
-## Install the dependencies
-```bash
-yarn
-```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-### Lint the files
-```bash
-yarn run lint
-```
+---
+- **UI**: `Vue`, `Quasar-framework`
+- **Data model**: `Pinia`
+- **Lang**: `typescript`
+- **Data fetching**: `Strapi`
+- **Routing**: `Vue-router`
+- **Lint**: `eslint`
+- **Deployment**: `netlify` (in future)
+- **Architecture**: `feature-sliced`
