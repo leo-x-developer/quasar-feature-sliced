@@ -3,9 +3,7 @@
     icon="las la-cart-plus"
     color="primary"
     @click="addProduct()"
-  >
-    <span class="q-px-sm">В корзину</span>
-  </q-btn>
+  />
 </template>
 
 <script lang="ts">
@@ -13,7 +11,7 @@ import { defineComponent, PropType } from 'vue';
 import { Product } from '@shared/api';
 import { cart } from '@features/order';
 
-export const AddProductButton = defineComponent({
+export const IncrementProductButton = defineComponent({
   props: {
     product: Object as PropType<Product>
   },
@@ -28,5 +26,5 @@ export const AddProductButton = defineComponent({
   },
 });
 
-export default AddProductButton
+export default IncrementProductButton
 </script>

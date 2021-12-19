@@ -1,7 +1,7 @@
 <template>
   <q-badge
     v-if="cartCounter"
-    color="red"
+    color="black"
     rounded
     floating
   >

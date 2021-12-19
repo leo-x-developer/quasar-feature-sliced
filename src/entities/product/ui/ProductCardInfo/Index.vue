@@ -17,9 +17,6 @@
           {{ product.price }} {{ rubleSign }}
         </span>
       </div>
-      <div class="text-caption text-grey">
-        {{ product.description }}
-      </div>
     </q-card-section>
   </q-card>
 </template>
@@ -27,7 +24,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { Product } from '@shared/api';
-import { useProductCardInfo } from '@entities/product';
+import { productModel } from '@entities/product';
 
 export const ProductCardInfo = defineComponent({
   props: {
@@ -35,7 +32,7 @@ export const ProductCardInfo = defineComponent({
   },
 
   setup(props) {
-    const { goToProductPage, rubleSign } = useProductCardInfo(props.product!)
+    const { goToProductPage, rubleSign } = productModel.useProduct(props.product!)
 
     return {
       goToProductPage,

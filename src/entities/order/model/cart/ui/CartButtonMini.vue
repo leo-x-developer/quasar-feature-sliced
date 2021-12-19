@@ -1,8 +1,8 @@
 <template>
   <q-btn
     push
-    color="white"
-    text-color="primary"
+    color="pink"
+    text-color="white"
     round
     icon="las la-shopping-cart"
     :to="to"

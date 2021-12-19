@@ -2,9 +2,9 @@ import { useRouter } from 'vue-router';
 import { productModel } from '@entities/product';
 import { Product } from '@shared/api';
 
-export const useProductCardInfo = (product: Product) => {
+export const useProduct = (product: Product) => {
   const router = useRouter()
-  const { rubleSign } = productModel
+  const { rubleSign, multiplicationSign, equalSign } = productModel
 
   const goToProductPage = () => {
     return router.push({
@@ -15,6 +15,8 @@ export const useProductCardInfo = (product: Product) => {
 
   return {
     goToProductPage,
-    rubleSign
+    rubleSign,
+    multiplicationSign,
+    equalSign
   }
 }

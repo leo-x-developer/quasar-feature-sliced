@@ -21,9 +21,7 @@
     <q-separator />
 
     <q-card-actions>
-      <q-btn flat color="primary">
-        Reserve
-      </q-btn>
+      <slot/>
     </q-card-actions>
   </q-card>
 </template>
