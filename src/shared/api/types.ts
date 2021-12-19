@@ -97,6 +97,11 @@ export interface IProduct {
   img: strapiImg
 }
 
+export interface ICartProduct extends IProduct {
+  count: number,
+  totalSum: number
+}
+
 export interface IOrder {
   id?: Id,
   users: Pick<IUser, 'id'>[]
@@ -121,4 +126,4 @@ export type Viewer = IUser | null
 export type Order = IOrder | null
 export type Product = IProduct | null
 export type Products = Product[] | null
-export type Cart = Partial<Product>[] | []
+export type CartProducts = Partial<ICartProduct>[] | []

@@ -1,14 +1,22 @@
 import { defineStore } from 'pinia';
-import { Cart } from '@shared/api';
+import { CartProducts, Product } from '@shared/api';
+import { orderModel } from '@entities/order';
 
 export const useCart = defineStore('cart', {
   state: () => ({
-    cart: []
+    cartProducts: []
   } as {
-    cart: Cart
+    cartProducts: CartProducts
   }),
 
   getters: {
-    cartCounter: (state) => state.cart.length
+    cartCounter: (state) => state.cartProducts.length,
+    groupCartProducts: (state) => orderModel.cart.toGroup(state.cartProducts),
+    totalSum: (state) => {
+      // @ts-ignore
+      return (state.cartProducts as CartProducts)
+        // @ts-ignore
+        .reduce((acc:CartProducts, current:Product) =>  current.price + acc, 0)
+    }
   }
 })

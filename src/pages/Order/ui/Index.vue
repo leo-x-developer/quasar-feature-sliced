@@ -21,42 +21,47 @@
         :done="step > st.name"
       />
     </q-stepper>
-    <div class="row q-pa-md">
-      <div class="col-9">
-        <router-view />
-      </div>
-      <div class="col">
-        <q-btn
-          @click="nextStep()"
-          color="primary"
-          :label="step === 3 ? 'Finish' : 'Continue'"
-        />
-        <q-btn
-          v-if="step > 1"
-          flat
-          color="primary"
-          @click="prevStep()"
-          label="Back"
-          class="q-ml-sm"
-        />
-      </div>
-    </div>
+
+    <router-view />
+
+    <q-page-sticky position="bottom-right" :offset="[18, 18]">
+      <q-btn
+        rounded
+        size="lg"
+        :disable="!cartCounter"
+        @click="nextStep()"
+        color="accent"
+        :label="step === 3 ? 'Finish' : 'Продолжить'"
+      />
+      <q-btn
+        v-if="step > 1"
+        flat
+        rounded
+        size="lg"
+        color="primary"
+        @click="prevStep()"
+        label="Back"
+        class="q-ml-sm"
+      />
+    </q-page-sticky>
   </q-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useOrderPage } from '@pages/Order';
+import { orderPageModel, cartPageModel } from '@pages/Order';
 
 export const Order = defineComponent({
   setup () {
-    const { step, steps, prevStep, nextStep } = useOrderPage()
+    const { step, steps, prevStep, nextStep } = orderPageModel.hooks.useOrderPage()
+    const { cartCounter } = cartPageModel.hooks.useCartPage()
 
     return {
       steps,
       step,
       nextStep,
       prevStep,
+      cartCounter
     }
   }
 });

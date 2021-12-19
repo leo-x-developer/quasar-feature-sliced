@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { ProductsList } from '@widgets/ProductsList'
+import { ProductsList } from '@widgets/product/ProductsList'
 
 export const ClientHomePage = defineComponent({
   components: {
