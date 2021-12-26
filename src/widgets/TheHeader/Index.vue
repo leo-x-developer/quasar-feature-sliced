@@ -22,6 +22,7 @@
 
       <q-space/>
       <div class="q-gutter-x-md">
+        <refill-wallet/>
         <to-product-list-button v-if="$route.path !== '/'"/>
         <to-cart-button />
         <to-profile-button/>
@@ -35,6 +36,7 @@
 import { defineComponent } from 'vue'
 import { LogoutButton } from '@features/auth';
 import { ToCartButton } from '@features/order';
+import { RefillWallet } from '@features/client';
 import { ToProfileButton } from '@entities/viewer';
 import { ToProductListButton } from '@entities/product';
 import { BakeryLogo } from '@shared/ui';
@@ -45,7 +47,8 @@ export const TheHeader = defineComponent({
     LogoutButton,
     ToProfileButton,
     ToCartButton,
-    ToProductListButton
+    ToProductListButton,
+    RefillWallet
   },
 });
 
