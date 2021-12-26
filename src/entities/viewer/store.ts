@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { Roles, Viewer}  from '@shared/api';
+import { Roles, Viewer }  from '@shared/api';
 import { bakeryApi } from '@shared/api'
 
 export const useViewerStore = defineStore('viewer', {

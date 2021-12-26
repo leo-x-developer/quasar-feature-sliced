@@ -29,15 +29,13 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { Product } from '@shared/api';
-import { productModel } from '@entities/product';
-
+import { rubleSign } from '@shared/lib'
 
 export const ProductPageCard = defineComponent({
   props: {
     product: Object as PropType<Product>
   },
   setup() {
-    const { rubleSign } = productModel
     return {
       rubleSign
     }

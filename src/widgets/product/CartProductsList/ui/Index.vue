@@ -26,7 +26,7 @@ import { storeToRefs } from 'pinia'
 import { defineComponent } from 'vue'
 import { ProductRowCart } from './ProductRowCart.vue';
 import { orderModel } from '@entities/order';
-import { productModel } from '@entities/product';
+import { rubleSign } from '@shared/lib'
 
 export const CartProductsList = defineComponent({
   components: {
@@ -36,7 +36,6 @@ export const CartProductsList = defineComponent({
   setup() {
     const cart = orderModel.cart.store()
     const { groupCartProducts, totalSum } = storeToRefs(cart)
-    const { rubleSign } = productModel
 
     return {
       groupCartProducts,

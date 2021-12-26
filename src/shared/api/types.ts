@@ -20,6 +20,7 @@ export interface IUser {
   blocked: boolean,
   createdAt: Date,
   updatedAt: Date,
+  wallet: number
 }
 
 export interface IUserRawData {
