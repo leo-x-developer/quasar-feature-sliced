@@ -25,6 +25,7 @@
 import { defineComponent, PropType } from 'vue'
 import { Product } from '@shared/api';
 import { productModel } from '@entities/product';
+import { rubleSign } from '@shared/lib'
 
 export const ProductCardInfo = defineComponent({
   props: {
@@ -32,7 +33,7 @@ export const ProductCardInfo = defineComponent({
   },
 
   setup(props) {
-    const { goToProductPage, rubleSign } = productModel.useProduct(props.product!)
+    const { goToProductPage } = productModel.useProduct(props.product!)
 
     return {
       goToProductPage,
