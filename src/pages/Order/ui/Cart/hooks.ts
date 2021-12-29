@@ -4,10 +4,11 @@ import { tweek } from '@pages/Order';
 
 export const useCartPage = () => {
   const cart = orderModel.cart.store()
-  const { cartCounter } = storeToRefs(cart)
+  const { cartCounter, totalSum } = storeToRefs(cart)
 
   return {
     tweek,
-    cartCounter
+    cartCounter,
+    totalSum
   }
 }

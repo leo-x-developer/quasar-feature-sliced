@@ -16,7 +16,7 @@
       inset
     />
     <div class="text-right text-h5 text-pink text-weight-bold">
-     К оплате: {{totalSum}} {{ rubleSign }}
+      К оплате: {{ totalSum }} {{ rubleSign }}
     </div>
   </div>
 </template>

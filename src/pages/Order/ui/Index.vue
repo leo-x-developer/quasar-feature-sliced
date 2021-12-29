@@ -25,6 +25,10 @@
     <router-view />
 
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
+      <cart-info
+        v-if="cartCounter"
+        class="q-mb-md"
+      />
       <q-btn
         rounded
         size="lg"
@@ -50,18 +54,23 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { orderPageModel, cartPageModel } from '@pages/Order';
+import { CartInfo } from '@entities/order';
 
 export const Order = defineComponent({
+  components: {
+    CartInfo
+  },
   setup () {
     const { step, steps, prevStep, nextStep } = orderPageModel.hooks.useOrderPage()
-    const { cartCounter } = cartPageModel.hooks.useCartPage()
+    const { cartCounter, totalSum } = cartPageModel.hooks.useCartPage()
 
     return {
       steps,
       step,
       nextStep,
       prevStep,
-      cartCounter
+      cartCounter,
+      totalSum
     }
   }
 });
