@@ -9,5 +9,5 @@
 - **Data fetching**: `Strapi`
 - **Routing**: `Vue-router`
 - **Lint**: `eslint`
-- **Deployment**: `netlify` (in future)
+- **Deployment**: `netlify`
 - **Architecture**: `feature-sliced`
